@@ -35,6 +35,7 @@ public class TelaPrincipal extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 51));
+        getContentPane().setLayout(new java.awt.GridLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 51, 51));
         jPanel3.setForeground(new java.awt.Color(0, 51, 51));
@@ -42,10 +43,11 @@ public class TelaPrincipal extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
+        jLabel2.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo Academia Axi (1).jpeg"))); // NOI18N
 
         CadastrarAluno.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        CadastrarAluno.setText("Cadatrar Aluno");
+        CadastrarAluno.setText("Cadastrar Aluno/Personal");
         CadastrarAluno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
         CadastrarAluno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         CadastrarAluno.addActionListener(new java.awt.event.ActionListener() {
@@ -55,8 +57,8 @@ public class TelaPrincipal extends javax.swing.JDialog {
         });
 
         jButton2.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        jButton2.setText("Remoção De Aluno");
-        jButton2.setActionCommand("Remover Aluno/Personal");
+        jButton2.setText("Remover Aluno/Personal");
+        jButton2.setActionCommand("");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,13 +74,11 @@ public class TelaPrincipal extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                        .addGap(60, 60, 60))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(CadastrarAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(CadastrarAluno, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,25 +98,14 @@ public class TelaPrincipal extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 554, Short.MAX_VALUE))
+                .addGap(0, 567, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel3);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
