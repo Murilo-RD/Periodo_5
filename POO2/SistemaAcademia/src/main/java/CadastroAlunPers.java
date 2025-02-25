@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 
-
 /**
  *
  * @author xacar
@@ -46,11 +45,10 @@ public class CadastroAlunPers extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        CadastrarAluno.setBackground(new java.awt.Color(204, 204, 204));
         CadastrarAluno.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        CadastrarAluno.setForeground(new java.awt.Color(0, 0, 0));
         CadastrarAluno.setText("Cadastrar Aluno/Personal");
-        CadastrarAluno.setBorder(null);
+        CadastrarAluno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        CadastrarAluno.setHideActionText(true);
         CadastrarAluno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         CadastrarAluno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,12 +61,10 @@ public class CadastroAlunPers extends javax.swing.JDialog {
             }
         });
 
-        RemoverAluno.setBackground(new java.awt.Color(204, 204, 204));
         RemoverAluno.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        RemoverAluno.setForeground(new java.awt.Color(0, 0, 0));
         RemoverAluno.setText("Remover Aluno/Personal");
         RemoverAluno.setActionCommand("");
-        RemoverAluno.setBorder(null);
+        RemoverAluno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         RemoverAluno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         RemoverAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
