@@ -31,8 +31,9 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        CadastrarAluno = new javax.swing.JButton();
         RemoverAluno = new javax.swing.JButton();
+        RemoverAluno1 = new javax.swing.JButton();
+        CadastrarAluno = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,20 +49,6 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        CadastrarAluno.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        CadastrarAluno.setText("Cadastrar Aluno/Personal");
-        CadastrarAluno.setToolTipText("");
-        CadastrarAluno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        CadastrarAluno.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        CadastrarAluno.setDefaultCapable(false);
-        CadastrarAluno.setInheritsPopupMenu(true);
-        CadastrarAluno.setName(""); // NOI18N
-        CadastrarAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastrarAlunoActionPerformed(evt);
-            }
-        });
-
         RemoverAluno.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         RemoverAluno.setText("Remover Aluno/Personal");
         RemoverAluno.setActionCommand("");
@@ -72,14 +59,40 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        RemoverAluno1.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        RemoverAluno1.setText("Consultar Aluno/Personal");
+        RemoverAluno1.setActionCommand("");
+        RemoverAluno1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        RemoverAluno1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoverAluno1ActionPerformed(evt);
+            }
+        });
+
+        CadastrarAluno.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        CadastrarAluno.setText("Cadastrar Aluno/Personal");
+        CadastrarAluno.setToolTipText("");
+        CadastrarAluno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        CadastrarAluno.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        CadastrarAluno.setDefaultCapable(false);
+        CadastrarAluno.setFocusPainted(false);
+        CadastrarAluno.setInheritsPopupMenu(true);
+        CadastrarAluno.setName(""); // NOI18N
+        CadastrarAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarAlunoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(RemoverAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(CadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(RemoverAluno1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(CadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,6 +101,8 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(CadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RemoverAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RemoverAluno1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
         );
 
@@ -107,7 +122,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 51, 51));
@@ -117,11 +132,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 817, Short.MAX_VALUE)
+            .addGap(0, 988, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 644, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -154,6 +169,10 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RemoverAlunoActionPerformed
 
+    private void RemoverAluno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverAluno1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoverAluno1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -166,6 +185,9 @@ public class Principal extends javax.swing.JFrame {
         try {
             javax.swing.UIManager.setLookAndFeel(new MaterialLookAndFeel(new MaterialLiteTheme()));
             UIManager.put("Button.foreground", java.awt.Color.BLACK);
+            //UIManager.put("Button.background", );
+            //UIManager.put("Button.border", null);
+            
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         } 
@@ -183,6 +205,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CadastrarAluno;
     private javax.swing.JButton RemoverAluno;
+    private javax.swing.JButton RemoverAluno1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
