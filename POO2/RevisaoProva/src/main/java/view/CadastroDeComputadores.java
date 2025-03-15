@@ -205,6 +205,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
 
         HDPainel.setBorder(javax.swing.BorderFactory.createTitledBorder("HD"));
 
+        HDButtonGroup.add(GBaCheckBox);
         GBaCheckBox.setText("350 GB");
         GBaCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +213,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
             }
         });
 
+        HDButtonGroup.add(GBbCheckBox);
         GBbCheckBox.setSelected(true);
         GBbCheckBox.setText("500 GB");
         GBbCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -220,6 +222,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
             }
         });
 
+        HDButtonGroup.add(TBCheckBox);
         TBCheckBox.setText("1 TB");
         TBCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
