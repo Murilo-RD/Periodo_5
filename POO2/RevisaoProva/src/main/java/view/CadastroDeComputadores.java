@@ -4,17 +4,33 @@
  */
 package view;
 
+import domain.Computador;
+
 /**
  *
  * @author Xacar
  */
 public class CadastroDeComputadores extends javax.swing.JFrame {
-
+    
+    private javax.swing.DefaultComboBoxModel windows = new javax.swing.DefaultComboBoxModel<>(new String[] { "XP", "Win7","Win8","2003 Server","2008 Server"});
+    private javax.swing.DefaultComboBoxModel linux = new javax.swing.DefaultComboBoxModel<>(new String[] {"Ubuntu", "Fedora", "Red Hat", "Suse", "Debian"}); 
+    private String so;
+    private String hd;
+    private String processador;
+    private ModeloComputador model = new ModeloComputador();
+    
+    
     /**
      * Creates new form CadastroDeComputadores
      */
     public CadastroDeComputadores() {
         initComponents();
+        so = WindRadioButton.getText();
+        processador = IntelRadioButton.getText();
+        hd = GBbCheckBox.getText();
+        System.out.println();
+        
+        
     }
     
     
@@ -54,7 +70,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
         PainelMemRAM = new javax.swing.JPanel();
         MemRAMLabel = new javax.swing.JLabel();
         MemRAMScrollPane = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        MemRAMList = new javax.swing.JList<>();
         CadastrarButton = new javax.swing.JButton();
         PainelRelatorio = new javax.swing.JPanel();
         RelatorioScrollPane = new javax.swing.JScrollPane();
@@ -97,6 +113,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
         PainelSistemaOP.setBorder(javax.swing.BorderFactory.createTitledBorder("Sist. Operacional"));
 
         SOButtomGroup.add(WindRadioButton);
+        WindRadioButton.setSelected(true);
         WindRadioButton.setText("Windows");
         WindRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +153,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
         PainelProcessador.setBorder(javax.swing.BorderFactory.createTitledBorder("Processador"));
 
         ProcessadorButtomGroup.add(IntelRadioButton);
+        IntelRadioButton.setSelected(true);
         IntelRadioButton.setText("Intel");
         IntelRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +191,8 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
 
         VersaoLabel.setText("Versão");
 
+        VersaoComboBox.setModel(windows);
+        VersaoComboBox.setSelectedIndex(2);
         VersaoComboBox.setToolTipText("");
         VersaoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,13 +300,13 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
 
         MemRAMLabel.setText("Memória RAM");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        MemRAMList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Menos que 1GB", "1GB", "2GB", "3BG", "4GB", "Mais que 4GB" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setToolTipText("");
-        MemRAMScrollPane.setViewportView(jList1);
+        MemRAMList.setToolTipText("");
+        MemRAMScrollPane.setViewportView(MemRAMList);
 
         javax.swing.GroupLayout PainelMemRAMLayout = new javax.swing.GroupLayout(PainelMemRAM);
         PainelMemRAM.setLayout(PainelMemRAMLayout);
@@ -316,31 +336,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
             }
         });
 
-        RelatorioTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Cidade", "SO", "Versão", "Processador", "HD", "Memória"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        RelatorioTable.setModel(model);
         RelatorioTable.setToolTipText("");
         RelatorioTable.setGridColor(new java.awt.Color(51, 51, 51));
         RelatorioScrollPane.setViewportView(RelatorioTable);
@@ -449,18 +445,21 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
 
     private void LinuxRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LinuxRadioButtonActionPerformed
         if(LinuxRadioButton.isSelected()){
-            VersaoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Ubuntu", "Fedora", "Red Hat", "Suse", "Debian"}));
+            so = LinuxRadioButton.getText();
+            VersaoComboBox.setModel(linux);
             VersaoComboBox.setSelectedIndex(0);
             
         }            // TODO add your handling code here:
     }//GEN-LAST:event_LinuxRadioButtonActionPerformed
 
     private void IntelRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntelRadioButtonActionPerformed
-        // TODO add your handling code here:
+        if(IntelRadioButton.isSelected())
+            processador = IntelRadioButton.getText();    // TODO add your handling code here:
     }//GEN-LAST:event_IntelRadioButtonActionPerformed
 
     private void AMDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMDRadioButtonActionPerformed
-        // TODO add your handling code here:
+        if(AMDRadioButton.isSelected())
+            processador = AMDRadioButton.getText();
     }//GEN-LAST:event_AMDRadioButtonActionPerformed
 
     private void VersaoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VersaoComboBoxActionPerformed
@@ -468,27 +467,36 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
     }//GEN-LAST:event_VersaoComboBoxActionPerformed
 
     private void CadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarButtonActionPerformed
-        // TODO add your handling code here:
+        
+      Computador comp = new Computador(NomeTextField.getText(),so,VersaoComboBox.getUIClassID(),
+              VersaoComboBox.getSelectedItem().toString(),CidadeComboBox.getSelectedItem().toString(),MemRAMList.getSelectedValue(),processador);
+      
+      model.adicionar(comp);
+       
     }//GEN-LAST:event_CadastrarButtonActionPerformed
 
     private void WindRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WindRadioButtonActionPerformed
         if (WindRadioButton.isSelected()){
-            VersaoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XP", "Win7","Win8","2003 Server","2008 Server"}));
+            so = WindRadioButton.getText();
+            VersaoComboBox.setModel(windows);
             VersaoComboBox.setSelectedIndex(2);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_WindRadioButtonActionPerformed
 
     private void GBaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GBaCheckBoxActionPerformed
-        // TODO add your handling code here:
+        if(GBaCheckBox.isSelected())
+            hd = GBaCheckBox.getText();
     }//GEN-LAST:event_GBaCheckBoxActionPerformed
 
     private void GBbCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GBbCheckBoxActionPerformed
-        // TODO add your handling code here:
+        if(GBbCheckBox.isSelected())
+            hd = GBbCheckBox.getText();
     }//GEN-LAST:event_GBbCheckBoxActionPerformed
 
     private void TBCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBCheckBoxActionPerformed
-        // TODO add your handling code here:
+        if(TBCheckBox.isSelected())
+            hd = TBCheckBox.getText();
     }//GEN-LAST:event_TBCheckBoxActionPerformed
 
     /**
@@ -524,7 +532,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
                 new CadastroDeComputadores().setVisible(true);
             }
         });
-    }
+;    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton AMDRadioButton;
@@ -538,6 +546,7 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
     private javax.swing.JRadioButton IntelRadioButton;
     private javax.swing.JRadioButton LinuxRadioButton;
     private javax.swing.JLabel MemRAMLabel;
+    private javax.swing.JList<String> MemRAMList;
     private javax.swing.JScrollPane MemRAMScrollPane;
     private javax.swing.JLabel NomeLabel;
     private javax.swing.JTextField NomeTextField;
@@ -558,6 +567,5 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> VersaoComboBox;
     private javax.swing.JLabel VersaoLabel;
     private javax.swing.JRadioButton WindRadioButton;
-    private javax.swing.JList<String> jList1;
     // End of variables declaration//GEN-END:variables
 }
