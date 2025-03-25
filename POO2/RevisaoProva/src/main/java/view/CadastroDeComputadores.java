@@ -468,10 +468,11 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
 
     private void CadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarButtonActionPerformed
         
-      Computador comp = new Computador(NomeTextField.getText(),so,VersaoComboBox.getUIClassID(),
+      Computador comp = new Computador(NomeTextField.getText(),so,VersaoComboBox.getSelectedItem().toString(),
               VersaoComboBox.getSelectedItem().toString(),CidadeComboBox.getSelectedItem().toString(),MemRAMList.getSelectedValue(),processador);
       
       model.adicionar(comp);
+      limparCampos();
        
     }//GEN-LAST:event_CadastrarButtonActionPerformed
 
@@ -499,6 +500,16 @@ public class CadastroDeComputadores extends javax.swing.JFrame {
             hd = TBCheckBox.getText();
     }//GEN-LAST:event_TBCheckBoxActionPerformed
 
+    
+    void limparCampos(){
+        initComponents();
+        so = WindRadioButton.getText();
+        processador = IntelRadioButton.getText();
+        hd = GBbCheckBox.getText();
+        
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
