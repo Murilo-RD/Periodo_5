@@ -33,4 +33,5 @@
         <maven.compiler.target>21</maven.compiler.target>
         <exec.mainClass>com.mycompany.sistemaacademia.SistemaAcademia</exec.mainClass>
     </properties>
+    <name>AxiAcademia</name>
 </project>
