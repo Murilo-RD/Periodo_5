@@ -1,9 +1,10 @@
-package view;
+package viewer;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import controller.GerInterGrafica;
 import javax.swing.*;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.themes.MaterialLiteTheme;
@@ -12,11 +13,13 @@ import mdlaf.themes.MaterialLiteTheme;
  * @author xacar
  */
 public class Principal extends javax.swing.JFrame {
-
+    
+    private GerInterGrafica gerIG;
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public Principal(GerInterGrafica gerIG) {
+        this.gerIG = gerIG;
         initComponents();
     }
 
@@ -174,9 +177,8 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CadastrarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarAlunoActionPerformed
-      CadastroAlunPers cad = new CadastroAlunPers(this,true);
-      this.setVisible(false);
-      cad.setVisible(true);
+       
+        gerIG.abrirJanelaCadastro();
     }//GEN-LAST:event_CadastrarAlunoActionPerformed
 
     private void RemoverAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverAlunoActionPerformed
@@ -190,31 +192,6 @@ public class Principal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            javax.swing.UIManager.setLookAndFeel(new MaterialLookAndFeel(new MaterialLiteTheme()));
-            UIManager.put("Button.foreground", java.awt.Color.BLACK);
-            //UIManager.put("Button.background", );
-            //UIManager.put("Button.border", null);
-            
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        } 
-        
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CadastrarAluno;
