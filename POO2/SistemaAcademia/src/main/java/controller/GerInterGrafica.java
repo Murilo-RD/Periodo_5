@@ -12,17 +12,22 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.themes.MaterialLiteTheme;
-import viewer.CadastroAlunPers;
-import viewer.Principal;
+import viewer.CadastroJD;
+import viewer.ConsultarJD;
+import viewer.ListarJD;
+import viewer.PrincipalJF;
+import viewer.RemoverJD;
 
 /**
  *
  * @author Xacar
  */
 public class GerInterGrafica {
-    Principal janelaPrincipal = null;
-    CadastroAlunPers janelaCadastro = null;
-
+    PrincipalJF janelaPrincipal = null;
+    CadastroJD janelaCadastro = null;
+    ConsultarJD janelaConsultar = null;
+    RemoverJD janelaRemover=null;
+    ListarJD janelaListar = null;
     public GerInterGrafica() {
     }
     
@@ -65,16 +70,23 @@ public class GerInterGrafica {
     
     public void abrirJanelaPrincipal(){
         if(janelaPrincipal == null)
-            janelaPrincipal = new Principal(this);
+            janelaPrincipal = new PrincipalJF(this);
         janelaPrincipal.setVisible(true);
     }
     public void abrirJanelaCadastro(){
-       abrirJanela(janelaPrincipal,janelaCadastro,CadastroAlunPers.class);
+       abrirJanela(janelaPrincipal,janelaCadastro,CadastroJD.class);
     }
-    public void abrirJanelaPesquisa(){
+    public void abrirJanelaConsultar(){
+       abrirJanela(janelaPrincipal,janelaConsultar,ConsultarJD.class);
+    }
+    public void abrirJanelaRemover(){
+        abrirJanela(janelaPrincipal,janelaRemover,RemoverJD.class);
+    }
     
+    public void abrirJanelaListar(){
+        abrirJanela(janelaPrincipal,janelaListar,ListarJD.class);
     }
-    public void abrirJanelaRemover(){}
+    
     
     
 }
