@@ -1,0 +1,23 @@
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1{     
+    text-align: center;
+    display: inline-block;
+    width: 25%;
+    
+}
+
+.t1{
+    background-color: blue;
+}
+.t2{
+    background-color: red;
+    margin: 0 12.5% 0 12.5%;
+}
+.t3{
+    background-color: green;
+}
