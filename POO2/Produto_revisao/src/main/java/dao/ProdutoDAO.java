@@ -34,6 +34,15 @@ public class ProdutoDAO {
       }
     }
 
+    public void excluir (Produto prod) throws SQLException, ClassNotFoundException{
+        Statement stmt;
+        stmt = ConexaoPGSQL.obterConexao().createStatement();        
+        String sql = "DELETE FROM PRODUTO WHERE IDPRODUTO =  " + prod.getIdProduto();
+        stmt.execute(sql);
+    
+    }
+    
+    
     
     public void alterar (Produto prod) throws ClassNotFoundException, SQLException{
         

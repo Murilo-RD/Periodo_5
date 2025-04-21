@@ -36,6 +36,10 @@ public class GerDominio {
         produtoDAO.inserir(prod);
     }
     
+     public void excluirProduto(Produto prod) throws ClassNotFoundException, SQLException{
+        produtoDAO.excluir(prod);
+    }
+    
     public void alterarProduto(Produto prod) throws ClassNotFoundException, SQLException{
         produtoDAO.alterar(prod);
     }

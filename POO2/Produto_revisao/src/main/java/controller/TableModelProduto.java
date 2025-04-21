@@ -22,6 +22,10 @@ public class TableModelProduto extends AbstractTableModel {
         this.list = list;
     }
     
+    public Produto getItem(int row){
+        return list.get(row);
+    }
+    
     
     @Override
     public int getRowCount() {
