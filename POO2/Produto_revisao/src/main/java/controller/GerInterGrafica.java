@@ -28,7 +28,6 @@ import viewer.ProdutoMain;
 public class GerInterGrafica {
     private ProdutoMain janelaPrincipal = null;
     private GerDominio gerDominio;
-    private TableModelProduto produtoTableModel;
 
     public GerInterGrafica() {
         try {

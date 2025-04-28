@@ -17,7 +17,7 @@ public class ConexaoPGSQL {
         String servidor = "localhost:5432";
         String login = "postgres";
         String senha = "57601";
-        String nomeBanco = "revisao";
+        String nomeBanco = "prova2";
         String url = "jdbc:postgresql://"+servidor+"/"+nomeBanco;
         Class.forName("org.postgresql.Driver");
         conexao =  DriverManager.getConnection(url, login, senha);
