@@ -1,0 +1,47 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.item1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.parte1{
+    width: 30%;
+    height: 90%;
+    background-color: red;
+}
+
+.parte2{
+    width: 5%;
+    height: 100%;
+    background-color: white;
+}
+
+.parte3{
+    width: 10%;
+    height: 100%;
+    background-color: blue;
+}
+
+.parte4{ 
+    width: 100%;
+    height: 90%;
+    background-color: red;
+}
+
+.item2{
+    width: 100%;
+    height: 35%;
+    background-color: blue;
+}
+
+.baixo{
+    align-items: end;
+}
