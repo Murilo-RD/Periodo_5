@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+
+}
+.item1{
+    height: 100%;
+    background-color: black;
+}
+.item2{
+    height: 100%;
+    background-color: red;
+}
+.item3{
+    height: 100%;
+    background-color: yellow;
+}
