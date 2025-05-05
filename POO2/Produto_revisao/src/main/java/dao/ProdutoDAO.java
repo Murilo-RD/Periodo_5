@@ -39,7 +39,6 @@ public class ProdutoDAO {
         stmt = ConexaoPGSQL.obterConexao().createStatement();        
         String sql = "DELETE FROM PRODUTO WHERE IDPRODUTO =  " + prod.getIdProduto();
         stmt.execute(sql);
-    
     }
     
     

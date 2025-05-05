@@ -390,8 +390,9 @@ public class ProdutoMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarCategoriaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Produto prod = tbModel.getItem(jTable3.getSelectedRow());
+
         try {
+            Produto prod = tbModel.getItem(jTable3.getSelectedRow());
             gerIG.getGerDominio().excluirProduto(prod);
             
             List<Produto>  list = gerIG.getGerDominio().listarProdutos((Categoria)cmbCategoria.getSelectedItem());
