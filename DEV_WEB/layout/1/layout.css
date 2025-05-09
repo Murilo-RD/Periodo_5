@@ -1,0 +1,40 @@
+*{
+    margin: 0%;
+}
+
+ nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+
+}
+a{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+}
+
+h2{
+    margin-left: 20px;
+}
+
+header{
+    font-family: Helvetica;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 7vh;
+    background-color: black;
+    color: white;
+}
+
+
+img{
+ 
+}
