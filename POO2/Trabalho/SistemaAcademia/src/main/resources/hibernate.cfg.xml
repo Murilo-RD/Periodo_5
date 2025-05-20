@@ -4,11 +4,12 @@
                                                                                              
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/AxiAcademia</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>    
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/AxiAcademia</property>  
+    
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">57601</property> 
 
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
