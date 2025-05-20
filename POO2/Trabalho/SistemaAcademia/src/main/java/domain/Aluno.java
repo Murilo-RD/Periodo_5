@@ -19,15 +19,18 @@ public class Aluno extends Usuario implements Serializable {
     @Column (nullable = false)
     private double peso;
     
-    @Column (nullable = false)
+
     @ManyToOne
-    @JoinColumn ( name = "idUsuario")
+    @JoinColumn ( name = "id_personal")
     private Personal personal;
     
-    @Column (nullable = false)
+    @ManyToOne
+    @JoinColumn ( name = "idPlano")
     private Plano plano;
     
-    @Column (nullable = false)
+
+    @OneToMany ( mappedBy = "aluno",
+    fetch = FetchType.LAZY )
     private List<Treino> treinos;
     
     public Aluno() {

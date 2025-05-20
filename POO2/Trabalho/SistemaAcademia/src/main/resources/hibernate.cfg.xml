@@ -17,6 +17,10 @@
     
     <mapping class="domain.Aluno"></mapping>
     <mapping class="domain.Usuario"></mapping>
+    <mapping class="domain.Personal"></mapping>
+    <mapping class="domain.Plano"></mapping>
+    <mapping class="domain.Exercicio"></mapping>
+    <mapping class="domain.Treino"></mapping>
             
        
   </session-factory>

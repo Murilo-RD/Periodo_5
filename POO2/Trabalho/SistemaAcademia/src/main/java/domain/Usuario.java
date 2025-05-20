@@ -14,7 +14,7 @@ import javax.persistence.*;
  * @author Xacar
  */
 
-@Entity // ou @MappedSuperclass
+@Entity
 @Inheritance ( strategy = InheritanceType.TABLE_PER_CLASS )
 public class Usuario implements Serializable {
     

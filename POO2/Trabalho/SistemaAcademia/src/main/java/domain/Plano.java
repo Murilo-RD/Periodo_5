@@ -4,11 +4,18 @@
  */
 package domain;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 /**
  *
  * @author 2023122760220
  */
-public class Plano {
+
+@Entity
+public class Plano implements Serializable {
+    @Id
+    @GeneratedValue ( strategy = GenerationType.IDENTITY )
     private int idPlano;
     private String plano;
     private int frequenciaSemanal;

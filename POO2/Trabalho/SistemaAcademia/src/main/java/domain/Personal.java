@@ -4,17 +4,24 @@
  */
 package domain;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.*;
 
 /**
  *
  * @author 2023122760220
  */
-public class Personal extends Usuario {
-    private int idPersonal;
+@Entity
+public class Personal extends Usuario implements Serializable{
+    @Column (nullable = false)
     private String tipoCurso;
     private String universidade;
     private double valorCobrado;
+    
+    @Column (nullable = false)
+    @OneToMany ( mappedBy = "personal",
+    fetch = FetchType.LAZY )
     private List<Aluno> alunos;
 
     public Personal() {
