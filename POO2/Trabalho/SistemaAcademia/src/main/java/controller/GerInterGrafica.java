@@ -17,7 +17,7 @@ import viewer.CadastroJD;
 import viewer.ConsultarJD;
 import viewer.ListarJD;
 import viewer.PrincipalJF;
-import viewer.RemoverJD;
+
 
 /**
  *
@@ -27,7 +27,6 @@ public class GerInterGrafica {
     PrincipalJF janelaPrincipal = null;
     CadastroJD janelaCadastro = null;
     ConsultarJD janelaConsultar = null;
-    RemoverJD janelaRemover=null;
     ListarJD janelaListar = null;
     private GerDominio gerDominio;
     
@@ -88,9 +87,6 @@ public class GerInterGrafica {
     }
     public void abrirJanelaConsultar(){
        abrirJanela(janelaPrincipal,janelaConsultar,ConsultarJD.class);
-    }
-    public void abrirJanelaRemover(){
-        abrirJanela(janelaPrincipal,janelaRemover,RemoverJD.class);
     }
     
     public void abrirJanelaListar(){

@@ -36,7 +36,6 @@ public class PrincipalJF extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        Remover = new javax.swing.JButton();
         Consultar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         Listar = new javax.swing.JButton();
@@ -65,16 +64,6 @@ public class PrincipalJF extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo Academia Axi (1).jpeg"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        Remover.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        Remover.setText("Remover");
-        Remover.setActionCommand("");
-        Remover.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        Remover.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoverActionPerformed(evt);
-            }
-        });
 
         Consultar.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         Consultar.setText("Consultar");
@@ -114,7 +103,6 @@ public class PrincipalJF extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Remover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Consultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -127,12 +115,10 @@ public class PrincipalJF extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Remover, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Listar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addGap(107, 107, 107))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -151,7 +137,7 @@ public class PrincipalJF extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -300,10 +286,6 @@ public class PrincipalJF extends javax.swing.JFrame {
         gerIG.abrirJanelaCadastro();
     }//GEN-LAST:event_CadastrarActionPerformed
 
-    private void RemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoverActionPerformed
-        gerIG.abrirJanelaRemover();        // TODO add your handling code here:
-    }//GEN-LAST:event_RemoverActionPerformed
-
     private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
        gerIG.abrirJanelaConsultar();
     }//GEN-LAST:event_ConsultarActionPerformed
@@ -320,7 +302,6 @@ public class PrincipalJF extends javax.swing.JFrame {
     private javax.swing.JButton Cadastrar;
     private javax.swing.JButton Consultar;
     private javax.swing.JButton Listar;
-    private javax.swing.JButton Remover;
     private javax.swing.JTable alunTable;
     private javax.swing.JLabel ganhoLabel;
     private javax.swing.JLabel jLabel1;
