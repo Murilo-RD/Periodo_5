@@ -22,6 +22,7 @@ public class TreinoJD extends javax.swing.JDialog {
         super(parent, modal);
         this.gerIG = gerIG;
         initComponents();
+        treinoTB.setModel(modelTreino);
         //treinoTB.setModel(modelTreino);
     }
 
@@ -43,7 +44,7 @@ public class TreinoJD extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
-        removerSistemaBT = new javax.swing.JToggleButton();
+        removerSistemaBT = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         treinoTB = new javax.swing.JTable();
@@ -56,13 +57,13 @@ public class TreinoJD extends javax.swing.JDialog {
         gpMuscularCB = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         nomeTF = new javax.swing.JTextField();
-        consultarBT = new javax.swing.JToggleButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         qtdSerieSP = new javax.swing.JSpinner();
         qtdRepeticoesSP = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
+        consultarBT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -136,9 +137,9 @@ public class TreinoJD extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removerSistemaBT)
-                .addContainerGap())
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jPanel14.setBackground(new java.awt.Color(0, 51, 51));
@@ -178,7 +179,7 @@ public class TreinoJD extends javax.swing.JDialog {
                         .addComponent(atualizarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(removerTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 154, Short.MAX_VALUE)))
+                        .addGap(0, 257, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -190,7 +191,7 @@ public class TreinoJD extends javax.swing.JDialog {
                     .addComponent(atualizarTreinoBT))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -214,13 +215,6 @@ public class TreinoJD extends javax.swing.JDialog {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nome:");
 
-        consultarBT.setText("Consultar Exercicio");
-        consultarBT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarBTActionPerformed(evt);
-            }
-        });
-
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Quantidade de Series:");
 
@@ -237,6 +231,13 @@ public class TreinoJD extends javax.swing.JDialog {
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        consultarBT.setText("Consultar Exercicio");
+        consultarBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarBTActionPerformed(evt);
             }
         });
 
@@ -259,9 +260,8 @@ public class TreinoJD extends javax.swing.JDialog {
                                     .addComponent(jLabel6)
                                     .addComponent(nomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(qtdSerieSP, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(consultarBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                        .addComponent(cadastrarBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(cadastrarBT, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(consultarBT, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -309,16 +309,16 @@ public class TreinoJD extends javax.swing.JDialog {
                             .addComponent(qtdRepeticoesSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(consultarBT, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel10)
+                            .addComponent(consultarBT))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cadastrarBT)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -326,7 +326,7 @@ public class TreinoJD extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -347,10 +347,6 @@ public class TreinoJD extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarBTActionPerformed
 
-    private void consultarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consultarBTActionPerformed
-
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
@@ -358,6 +354,10 @@ public class TreinoJD extends javax.swing.JDialog {
     private void removerTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerTreinoBTActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removerTreinoBTActionPerformed
+
+    private void consultarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultarBTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,7 +368,7 @@ public class TreinoJD extends javax.swing.JDialog {
     private javax.swing.JButton addBT;
     private javax.swing.JButton atualizarTreinoBT;
     private javax.swing.JButton cadastrarBT;
-    private javax.swing.JToggleButton consultarBT;
+    private javax.swing.JButton consultarBT;
     private javax.swing.JComboBox<String> gpMuscularCB;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -391,7 +391,7 @@ public class TreinoJD extends javax.swing.JDialog {
     private javax.swing.JTextField nomeTF;
     private javax.swing.JSpinner qtdRepeticoesSP;
     private javax.swing.JSpinner qtdSerieSP;
-    private javax.swing.JToggleButton removerSistemaBT;
+    private javax.swing.JButton removerSistemaBT;
     private javax.swing.JButton removerTreinoBT;
     private javax.swing.JTable treinoTB;
     // End of variables declaration//GEN-END:variables

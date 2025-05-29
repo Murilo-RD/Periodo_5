@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" pref="705" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="819" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -65,10 +65,8 @@
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <Component id="nomeTF" min="-2" pref="176" max="-2" attributes="0"/>
                                       <Component id="qtdSerieSP" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="consultarBT" alignment="0" pref="170" max="32767" attributes="0"/>
-                                          <Component id="cadastrarBT" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="cadastrarBT" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="consultarBT" min="-2" pref="170" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -132,8 +130,8 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="consultarBT" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="consultarBT" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -143,9 +141,9 @@
                       </Group>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
-                  <Component id="jPanel14" min="-2" pref="276" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -235,9 +233,9 @@
                       <Component id="jScrollPane1" min="-2" pref="161" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="addBT" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="10" max="32767" attributes="0"/>
-                      <Component id="removerSistemaBT" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="removerSistemaBT" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -278,7 +276,7 @@
                 <Property name="text" type="java.lang.String" value="Exercicios:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JToggleButton" name="removerSistemaBT">
+            <Component class="javax.swing.JButton" name="removerSistemaBT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover exercicio do sistema"/>
               </Properties>
@@ -310,7 +308,7 @@
                               <Component id="atualizarTreinoBT" min="-2" pref="263" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="removerTreinoBT" min="-2" pref="241" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="154" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="257" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -327,7 +325,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="216" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -427,14 +425,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="nomeTF">
         </Component>
-        <Component class="javax.swing.JToggleButton" name="consultarBT">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Consultar Exercicio"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarBTActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -485,6 +475,14 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="consultarBT">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar Exercicio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarBTActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
