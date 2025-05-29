@@ -146,9 +146,10 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="consultarBT" max="32767" attributes="0"/>
-                          <Component id="nomeTF" min="-2" pref="364" max="-2" attributes="0"/>
+                          <Component id="nomeTF" alignment="1" pref="364" max="32767" attributes="0"/>
                           <Component id="removerBT" alignment="0" max="32767" attributes="0"/>
-                          <Component id="removerBT2" alignment="0" min="-2" pref="364" max="-2" attributes="0"/>
+                          <Component id="alterarBT" alignment="1" pref="364" max="32767" attributes="0"/>
+                          <Component id="altAddTreinoBT" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
@@ -171,11 +172,13 @@
                           </Group>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="11" max="32767" attributes="0"/>
-                      <Component id="removerBT2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="alterarBT" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="removerBT" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="altAddTreinoBT" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -286,12 +289,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removerBTActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="removerBT2">
+            <Component class="javax.swing.JButton" name="alterarBT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alterar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removerBT2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alterarBTActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="altAddTreinoBT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alterar/Adicionar Treino"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altAddTreinoBTActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

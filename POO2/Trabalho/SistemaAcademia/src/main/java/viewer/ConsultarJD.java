@@ -43,7 +43,8 @@ public class ConsultarJD extends javax.swing.JDialog {
         consultarBT = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         removerBT = new javax.swing.JButton();
-        removerBT2 = new javax.swing.JButton();
+        alterarBT = new javax.swing.JButton();
+        altAddTreinoBT = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultTB = new javax.swing.JTable();
@@ -147,10 +148,17 @@ public class ConsultarJD extends javax.swing.JDialog {
             }
         });
 
-        removerBT2.setText("Alterar");
-        removerBT2.addActionListener(new java.awt.event.ActionListener() {
+        alterarBT.setText("Alterar");
+        alterarBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removerBT2ActionPerformed(evt);
+                alterarBTActionPerformed(evt);
+            }
+        });
+
+        altAddTreinoBT.setText("Alterar/Adicionar Treino");
+        altAddTreinoBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altAddTreinoBTActionPerformed(evt);
             }
         });
 
@@ -164,9 +172,10 @@ public class ConsultarJD extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(consultarBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeTF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                     .addComponent(removerBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removerBT2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(alterarBT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                    .addComponent(altAddTreinoBT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -183,11 +192,13 @@ public class ConsultarJD extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(consultarBT))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(removerBT2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(alterarBT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removerBT)
-                .addGap(32, 32, 32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(altAddTreinoBT)
+                .addGap(15, 15, 15))
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 51, 51));
@@ -278,9 +289,13 @@ public class ConsultarJD extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_removerBTActionPerformed
 
-    private void removerBT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerBT2ActionPerformed
+    private void alterarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_removerBT2ActionPerformed
+    }//GEN-LAST:event_alterarBTActionPerformed
+
+    private void altAddTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altAddTreinoBTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_altAddTreinoBTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +303,8 @@ public class ConsultarJD extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton altAddTreinoBT;
+    private javax.swing.JButton alterarBT;
     private javax.swing.JRadioButton alunoRB;
     private javax.swing.JButton consultarBT;
     private javax.swing.JLabel jLabel1;
@@ -302,7 +319,6 @@ public class ConsultarJD extends javax.swing.JDialog {
     private javax.swing.JTextField nomeTF;
     private javax.swing.JRadioButton persRB;
     private javax.swing.JButton removerBT;
-    private javax.swing.JButton removerBT2;
     private javax.swing.JTable resultTB;
     private javax.swing.ButtonGroup tipoBG;
     // End of variables declaration//GEN-END:variables

@@ -34,7 +34,7 @@ public class AlterarJD extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        personalJT = new javax.swing.JTable();
         personalJP2 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         universidadeTF2 = new javax.swing.JTextField();
@@ -116,7 +116,7 @@ public class AlterarJD extends javax.swing.JDialog {
         jPanel14.setBackground(new java.awt.Color(0, 51, 51));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        personalJT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -127,7 +127,7 @@ public class AlterarJD extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(personalJT);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -526,24 +526,16 @@ public class AlterarJD extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel alunJP;
-    private javax.swing.JComboBox<String> cursoCB;
-    private javax.swing.JComboBox<String> cursoCB1;
     private javax.swing.JComboBox<String> cursoCB2;
     private javax.swing.JList<String> frequenciaLT;
     private javax.swing.JComboBox<String> horarioCB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -555,32 +547,21 @@ public class AlterarJD extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JPanel personalJP;
-    private javax.swing.JPanel personalJP1;
     private javax.swing.JPanel personalJP2;
+    private javax.swing.JTable personalJT;
     private javax.swing.JComboBox<String> planosCB;
-    private javax.swing.JTextField universidadeTF;
-    private javax.swing.JTextField universidadeTF1;
     private javax.swing.JTextField universidadeTF2;
     private javax.swing.JLabel valorLB;
-    private javax.swing.JSpinner valorPorAlunSP;
-    private javax.swing.JSpinner valorPorAlunSP1;
     private javax.swing.JSpinner valorPorAlunSP2;
     // End of variables declaration//GEN-END:variables
 }
