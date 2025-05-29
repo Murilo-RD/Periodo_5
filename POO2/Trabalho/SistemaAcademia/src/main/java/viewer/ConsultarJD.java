@@ -6,6 +6,7 @@ package viewer;
 
 import controller.GerInterGrafica;
 import controller.TableModelAluno;
+import domain.Aluno;
 
 /**
  *
@@ -23,6 +24,7 @@ public class ConsultarJD extends javax.swing.JDialog {
         this.gerIG = gerIG;
         initComponents();
         resultTB.setModel(modelAluno);
+        modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
         
     }
 

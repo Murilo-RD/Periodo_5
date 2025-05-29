@@ -78,8 +78,10 @@ public class GerInterGrafica {
         dlg.setVisible(true); 
         return dlg;
     }    
-    
-    
+
+    public GerDominio getGerDominio() {
+        return gerDominio;
+    }
     
     public void abrirJanelaPrincipal(){
         if(janelaPrincipal == null)

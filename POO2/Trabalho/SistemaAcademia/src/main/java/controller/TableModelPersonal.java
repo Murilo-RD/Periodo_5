@@ -94,6 +94,10 @@ public class TableModelPersonal extends AbstractTableModel{
              }
        }
     }
+
+    public void setList(List<Personal> personais) {
+        this.personais = personais;
+    }
     
     
     

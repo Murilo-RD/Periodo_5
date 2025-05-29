@@ -2,6 +2,7 @@ package viewer;
 
 import controller.GerInterGrafica;
 import controller.TableModelPersonal;
+import domain.Personal;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -28,6 +29,7 @@ public class CadastroJD extends javax.swing.JDialog {
         initComponents();
         personalJP.setVisible(false);
         personalTB.setModel(modelPersonal);
+        modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
         pack();
     }
 

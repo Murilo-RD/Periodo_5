@@ -101,6 +101,10 @@ public class TableModelAluno extends AbstractTableModel{
              }
        }
     }
+
+    public void setList(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
     
     
     
