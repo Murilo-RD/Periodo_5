@@ -299,7 +299,7 @@ public class ConsultarJD extends javax.swing.JDialog {
     }//GEN-LAST:event_alterarBTActionPerformed
 
     private void altAddTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altAddTreinoBTActionPerformed
-        // TODO add your handling code here:
+        gerIG.abrirJanelaTreino();
     }//GEN-LAST:event_altAddTreinoBTActionPerformed
 
     /**

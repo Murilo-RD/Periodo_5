@@ -4,18 +4,25 @@
  */
 package viewer;
 
+import controller.GerInterGrafica;
+import controller.TableModelTreino;
+
 /**
  *
  * @author Xacar
  */
 public class TreinoJD extends javax.swing.JDialog {
-
+    private TableModelTreino modelTreino = new TableModelTreino();
+    private GerInterGrafica gerIG;
+     
     /**
      * Creates new form TreinoJD
      */
-    public TreinoJD(java.awt.Frame parent, boolean modal) {
+    public TreinoJD(java.awt.Frame parent, boolean modal,GerInterGrafica gerIG){
         super(parent, modal);
+        this.gerIG = gerIG;
         initComponents();
+        //treinoTB.setModel(modelTreino);
     }
 
     /**
@@ -39,7 +46,7 @@ public class TreinoJD extends javax.swing.JDialog {
         removerSistemaBT = new javax.swing.JToggleButton();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        treinoJT = new javax.swing.JTable();
+        treinoTB = new javax.swing.JTable();
         removerTreinoBT = new javax.swing.JButton();
         atualizarTreinoBT = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -137,7 +144,7 @@ public class TreinoJD extends javax.swing.JDialog {
         jPanel14.setBackground(new java.awt.Color(0, 51, 51));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Treino", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        treinoJT.setModel(new javax.swing.table.DefaultTableModel(
+        treinoTB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -148,7 +155,7 @@ public class TreinoJD extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(treinoJT);
+        jScrollPane3.setViewportView(treinoTB);
 
         removerTreinoBT.setText("Remover exercicio do treino");
         removerTreinoBT.addActionListener(new java.awt.event.ActionListener() {
@@ -355,44 +362,7 @@ public class TreinoJD extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TreinoJD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TreinoJD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TreinoJD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TreinoJD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                TreinoJD dialog = new TreinoJD(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBT;
@@ -423,6 +393,6 @@ public class TreinoJD extends javax.swing.JDialog {
     private javax.swing.JSpinner qtdSerieSP;
     private javax.swing.JToggleButton removerSistemaBT;
     private javax.swing.JButton removerTreinoBT;
-    private javax.swing.JTable treinoJT;
+    private javax.swing.JTable treinoTB;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,10 +13,12 @@ import javax.swing.UnsupportedLookAndFeelException;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.themes.MaterialLiteTheme;
 import org.hibernate.HibernateException;
+import viewer.AlterarJD;
 import viewer.CadastroJD;
 import viewer.ConsultarJD;
 import viewer.ListarJD;
 import viewer.PrincipalJF;
+import viewer.TreinoJD;
 
 
 /**
@@ -28,6 +30,8 @@ public class GerInterGrafica {
     CadastroJD janelaCadastro = null;
     ConsultarJD janelaConsultar = null;
     ListarJD janelaListar = null;
+    AlterarJD janelaAlterar = null;
+    TreinoJD janelaTreino = null;
     private GerDominio gerDominio;
     
     
@@ -91,6 +95,14 @@ public class GerInterGrafica {
     
     public void abrirJanelaListar(){
         abrirJanela(janelaPrincipal,janelaListar,ListarJD.class);
+    }
+    
+    public void abrirJanelaAlterar(){
+        abrirJanela(janelaPrincipal,janelaAlterar,AlterarJD.class);
+    }
+    
+    public void abrirJanelaTreino(){
+        abrirJanela(janelaPrincipal,janelaTreino,TreinoJD.class);
     }
     
     

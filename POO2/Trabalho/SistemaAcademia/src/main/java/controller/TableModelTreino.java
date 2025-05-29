@@ -20,9 +20,13 @@ public class TableModelTreino extends AbstractTableModel{
     
     @Override
     public int getRowCount() {
-        
-        
-        return treinos.size();
+        int maior = 0;
+        for(Treino trei: treinos){
+            if(trei.getExercicios().size() > maior){
+                maior = trei.getExercicios().size();
+            }
+        }
+        return maior;
     }
 
     @Override
@@ -32,64 +36,34 @@ public class TableModelTreino extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-       Personal personal = personais.get(rowIndex);
-       switch(columnIndex){
-           case 0 -> {
-               return personal.getNome();
-             }
-           case 1 -> {
-               return personal.getCpf();
-             }
-           case 2 -> {
-               return personal.getDatNascimento();
-             }
-           case 3 -> {
-               return personal.getSexo();
-             }
-           case 4 -> { 
-               return personal.getTipoCurso();
-             }
-           case 5 -> {
-               return personal.getUniversidade();
-             }
-           case 6 -> {
-               return personal.getValorCobrado();
-             }
-           case 7 -> {
-               return personal.getAlunos().size();
-           }
-           default -> {
-               return null;
-             }
-       }
+       Treino treino = treinos.get(columnIndex);
+       return treino.getExercicios().get(rowIndex);
+          
     }
 
     @Override
     public String getColumnName(int column) {
         switch(column){
            case 0 -> {
-               return "Nome";
+               return "Dia 1";
              }
            case 1 -> {
-               return "CPF";
+               return "Dia 2";
              }
            case 2 -> {
-               return "Data Nascimento";
+               return "Dia 3";
              }
            case 3 -> {
-               return"Sexo";
+               return"Dia 4";
              }
            case 4 -> { 
-               return "Tipo de Curso";
+               return "Dia 5";
              }
            case 5 -> {
-               return "Universidade";
+               return "Dia 6";
              }
            case 6 -> {
-               return "Valor Dia";
-             }
-           case 7 -> {
-               return "QTD Alunos";
+               return "Dia 7";
              }
            default -> {
                return null;
@@ -97,17 +71,23 @@ public class TableModelTreino extends AbstractTableModel{
        }
     }
     
+    Treino getTreino(int index){
+        return treinos.get(index);
+    }   
+    
+    void setList(List<Treino> lista){
+        treinos = lista;
+    }
     
     
-    
-    void adicionar(Personal personal){
-        personais.add(personal);
-        fireTableRowsInserted(personais.size()-1,personais.size()-1);
+    void adicionar(Treino treino){
+        treinos.add(treino);
+        fireTableRowsInserted(treinos.size()-1,treinos.size()-1);
     }  
     
-    void remover(Personal personal){
-        personais.remove(personal);
-        fireTableRowsInserted(personais.size()-1,personais.size()-1);
+    void remover(Treino treino){
+        treinos.remove(treino);
+        fireTableRowsInserted(treinos.size()-1,treinos.size()-1);
     }
 }
 

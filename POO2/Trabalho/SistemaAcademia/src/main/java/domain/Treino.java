@@ -32,6 +32,39 @@ public class Treino implements Serializable {
 
     public Treino() {
     }
+
+    public int getIdTreino() {
+        return idTreino;
+    }
+
+    public void setIdTreino(int idTreino) {
+        this.idTreino = idTreino;
+    }
+
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
+
+    public List<Exercicio> getExercicios() {
+        return exercicios;
+    }
+
+    public void setExercicios(List<Exercicio> exercicios) {
+        this.exercicios = exercicios;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+    
     
     
 }
