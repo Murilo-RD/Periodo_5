@@ -16,7 +16,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance ( strategy = InheritanceType.TABLE_PER_CLASS )
-public class Usuario implements Serializable {
+public abstract class Usuario implements Serializable {
     
     @Id
     @GeneratedValue ( strategy = GenerationType.AUTO )
@@ -35,6 +35,46 @@ public class Usuario implements Serializable {
     private String sexo;
 
     public Usuario() {
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Date getDatNascimento() {
+        return datNascimento;
+    }
+
+    public void setDatNascimento(Date datNascimento) {
+        this.datNascimento = datNascimento;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     

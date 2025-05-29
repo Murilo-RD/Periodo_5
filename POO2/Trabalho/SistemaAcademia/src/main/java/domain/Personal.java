@@ -26,6 +26,40 @@ public class Personal extends Usuario implements Serializable{
 
     public Personal() {
     }
+
+    public String getTipoCurso() {
+        return tipoCurso;
+    }
+
+    public void setTipoCurso(String tipoCurso) {
+        this.tipoCurso = tipoCurso;
+    }
+
+    public String getUniversidade() {
+        return universidade;
+    }
+
+    public void setUniversidade(String universidade) {
+        this.universidade = universidade;
+    }
+
+    public double getValorCobrado() {
+        return valorCobrado;
+    }
+
+    public void setValorCobrado(double valorCobrado) {
+        this.valorCobrado = valorCobrado;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+    
+    
     
     
     

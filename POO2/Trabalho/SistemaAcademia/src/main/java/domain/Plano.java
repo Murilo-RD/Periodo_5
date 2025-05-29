@@ -25,5 +25,45 @@ public class Plano implements Serializable {
     public Plano() {
     }
     
+    public int getIdPlano() {
+        return idPlano;
+    }
+
+    public void setIdPlano(int idPlano) {
+        this.idPlano = idPlano;
+    }
+
+    public String getPlano() {
+        return plano;
+    }
+
+    public void setPlano(String plano) {
+        this.plano = plano;
+    }
+
+    public int getFrequenciaSemanal() {
+        return frequenciaSemanal;
+    }
+
+    public void setFrequenciaSemanal(int frequenciaSemanal) {
+        this.frequenciaSemanal = frequenciaSemanal;
+    }
+
+    public String getTurnoTreino() {
+        return turnoTreino;
+    }
+
+    public void setTurnoTreino(String turnoTreino) {
+        this.turnoTreino = turnoTreino;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+    
     
 }

@@ -13,6 +13,8 @@ import javax.persistence.*;
  */
 @Entity
 public class Aluno extends Usuario implements Serializable {
+    
+    
     @Column (nullable = false)
     private double altura;
    
@@ -35,6 +37,48 @@ public class Aluno extends Usuario implements Serializable {
     
     public Aluno() {
     }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public Personal getPersonal() {
+        return personal;
+    }
+
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
+    }
+
+    public List<Treino> getTreinos() {
+        return treinos;
+    }
+
+    public void setTreinos(List<Treino> treinos) {
+        this.treinos = treinos;
+    }
+    
+    
     
     
 }
