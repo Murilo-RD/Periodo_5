@@ -22,7 +22,7 @@ public class Treino implements Serializable {
     @Column (nullable = false)
     private String diaSemana;
     
-    @ManyToMany ( fetch = FetchType.LAZY )
+    @ManyToMany ( fetch = FetchType.EAGER )
     @JoinTable ( name="Treino_Exercicio",joinColumns = { @JoinColumn (name="idTreino") },inverseJoinColumns = { @JoinColumn(name="idExercicio") })
     private List<Exercicio> exercicios;
     //teste

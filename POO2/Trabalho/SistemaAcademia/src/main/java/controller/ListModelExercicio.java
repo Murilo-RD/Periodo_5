@@ -4,6 +4,9 @@
  */
 package controller;
 
+import domain.Exercicio;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
@@ -13,24 +16,33 @@ import javax.swing.event.ListDataListener;
  */
 public class ListModelExercicio implements ListModel {
 
-    @Override
+    private List<Exercicio> exercicios = new ArrayList<>();
+    private final List<ListDataListener> ouvintes = new ArrayList<>();
+    
+    
+    public void setList(List<Exercicio> exercicios) {
+        this.exercicios = exercicios;
+    }
+    
+    
     public int getSize() {
-        
+        return exercicios.size();
     }
 
     @Override
     public Object getElementAt(int index) {
-       
+       return exercicios.get(index);
     }
 
     @Override
     public void addListDataListener(ListDataListener l) {
-        
+        ouvintes.add(l);
     }
 
     @Override
     public void removeListDataListener(ListDataListener l) {
-        
+        ouvintes.remove(l);
+    }
     
     
 }

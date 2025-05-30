@@ -4,6 +4,7 @@
  */
 package controller;
 
+import domain.Exercicio;
 import domain.Treino;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,11 @@ public class TableModelTreino extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+       if(columnIndex >= treinos.size())
+           return null;         
        Treino treino = treinos.get(columnIndex);
+       if(rowIndex >= treino.getExercicios().size())
+           return null;
        return treino.getExercicios().get(rowIndex);
           
     }
@@ -71,21 +76,21 @@ public class TableModelTreino extends AbstractTableModel{
        }
     }
     
-    Treino getTreino(int index){
+    public Treino getTreino(int index){
         return treinos.get(index);
     }   
     
-    void setList(List<Treino> lista){
+    public void setList(List<Treino> lista){
         treinos = lista;
     }
     
     
-    void adicionar(Treino treino){
+    public void adicionar(Treino treino){
         treinos.add(treino);
         fireTableRowsInserted(treinos.size()-1,treinos.size()-1);
     }  
     
-    void remover(Treino treino){
+    public void remover(Treino treino){
         treinos.remove(treino);
         fireTableRowsInserted(treinos.size()-1,treinos.size()-1);
     }

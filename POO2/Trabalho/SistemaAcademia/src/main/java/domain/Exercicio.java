@@ -35,6 +35,11 @@ public class Exercicio implements Serializable {
 
     public Exercicio() {
     }
+
+    @Override
+    public String toString() {
+        return nome+" - "+qtdSeries+" x "+qtdRepeticoes;
+    }
     
     
     

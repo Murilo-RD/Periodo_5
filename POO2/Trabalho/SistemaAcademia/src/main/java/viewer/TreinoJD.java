@@ -5,8 +5,10 @@
 package viewer;
 
 import controller.GerInterGrafica;
+import controller.ListModelExercicio;
 import controller.TableModelTreino;
 import domain.Exercicio;
+import domain.Treino;
 import java.util.Vector;
 
 /**
@@ -16,6 +18,7 @@ import java.util.Vector;
 public class TreinoJD extends javax.swing.JDialog {
     private TableModelTreino modelTreino = new TableModelTreino();
     private GerInterGrafica gerIG;
+    private ListModelExercicio modelExercicio = new ListModelExercicio();
      
     /**
      * Creates new form TreinoJD
@@ -24,6 +27,9 @@ public class TreinoJD extends javax.swing.JDialog {
         super(parent, modal);
         this.gerIG = gerIG;
         initComponents();
+        modelExercicio.setList(gerIG.getGerDominio().listar(Exercicio.class));
+        modelTreino.setList(gerIG.getGerDominio().listar(Treino.class));
+        exercicioLT.setModel(modelExercicio);
         treinoTB.setModel(modelTreino);
         //treinoTB.setModel(modelTreino);
     }
@@ -181,7 +187,7 @@ public class TreinoJD extends javax.swing.JDialog {
                         .addComponent(atualizarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(removerTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 257, Short.MAX_VALUE)))
+                        .addGap(0, 655, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -328,7 +334,7 @@ public class TreinoJD extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
