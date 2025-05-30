@@ -21,7 +21,11 @@ public class GerDominio {
         genDAO = new GenericDAO();
      }
      
-     public List listar(Class classe) throws HibernateException {
+    public void inserir(Object obj){
+        genDAO.inserir(obj);
+    }
+     
+    public List listar(Class classe) throws HibernateException {
         return genDAO.listar(classe);      
     }
     

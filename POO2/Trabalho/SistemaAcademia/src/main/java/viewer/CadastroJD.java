@@ -2,8 +2,11 @@ package viewer;
 
 import controller.GerInterGrafica;
 import controller.TableModelPersonal;
+import domain.Aluno;
 import domain.Personal;
 import domain.Plano;
+import domain.Usuario;
+import java.util.Date;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -35,15 +38,39 @@ public class CadastroJD extends javax.swing.JDialog {
     }
 
     
-    public void calcularPlano(){
+    public Plano calcularPlano(){
         String plano = (String) planosCB.getSelectedItem();
         int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 1;
         double taxaPersonal = modelPersonal.getPersonal(personalTB.getSelectedRow()).getValorCobrado();
         String turnoTreino = (String) horarioCB.getSelectedItem();
         Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);
         valorLB.setText("R$"+plan.getValor());
-        
+        return plan;
+    }
     
+    
+    public Usuario obterDados(){
+        String nome = nomeTF.getText();
+        String cpf = cpfFF.getText();
+        Date datNascimento = new Date(datFF.getText());
+        String sexo = (String) sexoCB.getSelectedItem();
+        
+        if(alunRB.isSelected()){
+            int altura = (int)alturaSP.getValue();
+            double peso = (double) pesoSP.getValue();
+            Personal personal = modelPersonal.getPersonal(personalTB.getSelectedRow());
+            Plano plano = calcularPlano();
+            gerIG.getGerDominio().inserir(plano);
+            Aluno aluno = new Aluno(altura,peso,personal,plano,nome,cpf,datNascimento,sexo);
+            return aluno;
+        }else{
+            String universidade = universidadeTF.getText();
+            String tipoCurso = (String) cursoCB.getSelectedItem();
+        
+        }
+        
+        return null;
+        
     }
     
     /**
@@ -697,6 +724,10 @@ public class CadastroJD extends javax.swing.JDialog {
     }//GEN-LAST:event_alunRBActionPerformed
 
     private void cadastrarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBTActionPerformed
+
+        gerIG.getGerDominio().inserir(obterDados());    
+        if(persRB.isSelected())
+            modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarBTActionPerformed
 

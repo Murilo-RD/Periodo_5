@@ -34,6 +34,16 @@ public abstract class Usuario implements Serializable {
     @Column (nullable = false)
     private String sexo;
 
+    public Usuario(String nome, String cpf, Date datNascimento, String sexo) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.datNascimento = datNascimento;
+        this.sexo = sexo;
+    }
+
+    
+    
+    
     public Usuario() {
     }
 

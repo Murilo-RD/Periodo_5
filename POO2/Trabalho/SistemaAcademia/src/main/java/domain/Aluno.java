@@ -4,6 +4,7 @@
  */
 package domain;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
@@ -16,7 +17,7 @@ public class Aluno extends Usuario implements Serializable {
     
     
     @Column (nullable = false)
-    private double altura;
+    private int altura;
    
     @Column (nullable = false)
     private double peso;
@@ -30,10 +31,20 @@ public class Aluno extends Usuario implements Serializable {
     @JoinColumn (name = "idPlano")
     private Plano plano;
     
-
+    @Column (nullable = true)
     @OneToMany ( mappedBy = "aluno",
     fetch = FetchType.LAZY )
     private List<Treino> treinos;
+
+    public Aluno(int altura, double peso, Personal personal, Plano plano, String nome, String cpf, Date datNascimento, String sexo) {
+        super(nome, cpf, datNascimento, sexo);
+        this.altura = altura;
+        this.peso = peso;
+        this.personal = personal;
+        this.plano = plano;
+    }
+
+  
     
     public Aluno() {
     }
@@ -42,7 +53,7 @@ public class Aluno extends Usuario implements Serializable {
         return altura;
     }
 
-    public void setAltura(double altura) {
+    public void setAltura(int altura) {
         this.altura = altura;
     }
 
