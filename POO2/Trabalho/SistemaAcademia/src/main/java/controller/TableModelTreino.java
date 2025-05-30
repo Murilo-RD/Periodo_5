@@ -82,6 +82,7 @@ public class TableModelTreino extends AbstractTableModel{
     
     public void setList(List<Treino> lista){
         treinos = lista;
+        this.fireTableDataChanged();
     }
     
     

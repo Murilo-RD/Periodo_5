@@ -19,11 +19,21 @@ public class Plano implements Serializable {
     private int idPlano;
     private String plano;
     private int frequenciaSemanal;
+    private double taxaPersonal;
     private String turnoTreino;
     private double valor;
 
     public Plano() {
     }
+
+    public Plano(String plano, int frequenciaSemanal, double taxaPersonal, String turnoTreino) {
+        this.plano = plano;
+        this.frequenciaSemanal = frequenciaSemanal;
+        this.taxaPersonal = taxaPersonal;
+        this.turnoTreino = turnoTreino;
+    }
+    
+    
     
     public int getIdPlano() {
         return idPlano;
@@ -58,12 +68,43 @@ public class Plano implements Serializable {
     }
 
     public double getValor() {
-        return valor;
+        valor = (5 + taxaPersonal) * frequenciaSemanal;
+        switch(plano){
+           case "Semanal" -> {
+               
+             }
+           case "Mensal" -> {
+               valor = (valor*4.34)*0.95;
+             }
+           case "Trimestral" -> {
+               valor = (valor*(3*4.34))*0.92;
+             }
+           case "Semestral" -> {
+               valor = (valor*(6*4.34))*0.90;
+             }
+           case "Anual" ->{ 
+               valor = (valor*(12*4.34))*0.85;
+             }
+           default -> {
+               return 0;
+             }
+       }
+        
+       switch(turnoTreino){
+           case "Matutino" -> {
+               valor= valor*0.98;
+               return valor;
+             }
+           case "Vespertino" -> {
+               valor= valor*0.99;
+               return valor;
+           }
+           case "Noturno" -> {
+               return valor;
+           }
+           default -> {
+               return 0;
+             }
+       }
     }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-    
-    
 }

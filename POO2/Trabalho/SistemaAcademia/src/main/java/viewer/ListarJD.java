@@ -5,6 +5,10 @@
 package viewer;
 
 import controller.GerInterGrafica;
+import controller.TableModelAluno;
+import controller.TableModelPersonal;
+import domain.Aluno;
+import domain.Personal;
 
 /**
  *
@@ -12,13 +16,16 @@ import controller.GerInterGrafica;
  */
 public class ListarJD extends javax.swing.JDialog {
     private GerInterGrafica gerIG;
-    /**
+    private TableModelPersonal modelPersonal = new TableModelPersonal();
+    private TableModelAluno modelAluno =  new TableModelAluno();    /**
      * Creates new form ListarJD
      */
     public ListarJD(java.awt.Frame parent, boolean modal,GerInterGrafica gerIG) {
         super(parent, modal);
         this.gerIG = gerIG;
         initComponents();
+        modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+        resultTB.setModel(modelAluno);
     }
 
     /**
@@ -86,6 +93,7 @@ public class ListarJD extends javax.swing.JDialog {
         alunoRB.setBackground(new java.awt.Color(0, 51, 51));
         tipoBG.add(alunoRB);
         alunoRB.setForeground(new java.awt.Color(255, 255, 255));
+        alunoRB.setSelected(true);
         alunoRB.setText("Aluno");
         alunoRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +105,11 @@ public class ListarJD extends javax.swing.JDialog {
         tipoBG.add(persRB);
         persRB.setForeground(new java.awt.Color(255, 255, 255));
         persRB.setText("Personal");
+        persRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                persRBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -155,8 +168,7 @@ public class ListarJD extends javax.swing.JDialog {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1209, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,8 +214,14 @@ public class ListarJD extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alunoRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoRBActionPerformed
-        // TODO add your handling code here:
+      modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+      resultTB.setModel(modelAluno);  // TODO add your handling code here:
     }//GEN-LAST:event_alunoRBActionPerformed
+
+    private void persRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persRBActionPerformed
+      modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+      resultTB.setModel(modelPersonal);  // TODO add your handling code here:
+    }//GEN-LAST:event_persRBActionPerformed
 
     /**
      * @param args the command line arguments

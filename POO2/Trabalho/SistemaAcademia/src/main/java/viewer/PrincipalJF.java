@@ -6,6 +6,7 @@ package viewer;
  */
 import controller.GerInterGrafica;
 import controller.TableModelAluno;
+import domain.Aluno;
 import javax.swing.*;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.themes.MaterialLiteTheme;
@@ -16,7 +17,6 @@ import mdlaf.themes.MaterialLiteTheme;
 public class PrincipalJF extends javax.swing.JFrame {
     
     private TableModelAluno modelAluno = new TableModelAluno();
-    
     private GerInterGrafica gerIG;
     /**
      * Creates new form Principal
@@ -24,9 +24,26 @@ public class PrincipalJF extends javax.swing.JFrame {
     public PrincipalJF(GerInterGrafica gerIG) {
         this.gerIG = gerIG;
         initComponents();
+        atualizar();
         alunTB.setModel(modelAluno);
     }
 
+    public void calcularTotal(){
+        double total = 0;
+        for(Aluno alun: modelAluno.getList()){
+            total=  total+alun.getPlano().getValor();
+        }
+        ganhoLabel.setText("R$"+total);
+    }
+    
+    public void atualizar(){
+        modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+        calcularTotal();
+    }
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,6 +72,7 @@ public class PrincipalJF extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         alunTB = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
+        atualizarBT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -196,6 +214,13 @@ public class PrincipalJF extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Alunos");
 
+        atualizarBT.setText("Atualizar");
+        atualizarBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarBTActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -207,10 +232,6 @@ public class PrincipalJF extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(totalPersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,7 +239,13 @@ public class PrincipalJF extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(totalAlunsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(atualizarBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -237,7 +264,9 @@ public class PrincipalJF extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(ganhoLabel))
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(atualizarBT)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,6 +328,10 @@ public class PrincipalJF extends javax.swing.JFrame {
         gerIG.abrirJanelaListar();// TODO add your handling code here:
     }//GEN-LAST:event_ListarActionPerformed
 
+    private void atualizarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarBTActionPerformed
+        this.atualizar();   // TODO add your handling code here:
+    }//GEN-LAST:event_atualizarBTActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +341,7 @@ public class PrincipalJF extends javax.swing.JFrame {
     private javax.swing.JButton Consultar;
     private javax.swing.JButton Listar;
     private javax.swing.JTable alunTB;
+    private javax.swing.JButton atualizarBT;
     private javax.swing.JLabel ganhoLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
