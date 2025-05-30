@@ -6,6 +6,8 @@ package viewer;
 
 import controller.GerInterGrafica;
 import controller.TableModelTreino;
+import domain.Exercicio;
+import java.util.Vector;
 
 /**
  *
@@ -42,7 +44,7 @@ public class TreinoJD extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         addBT = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        exercicioLT = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         removerSistemaBT = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
@@ -108,7 +110,7 @@ public class TreinoJD extends javax.swing.JDialog {
             }
         });
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(exercicioLT);
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Exercicios:");
@@ -369,6 +371,7 @@ public class TreinoJD extends javax.swing.JDialog {
     private javax.swing.JButton atualizarTreinoBT;
     private javax.swing.JButton cadastrarBT;
     private javax.swing.JButton consultarBT;
+    private javax.swing.JList<String> exercicioLT;
     private javax.swing.JComboBox<String> gpMuscularCB;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -381,7 +384,6 @@ public class TreinoJD extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
