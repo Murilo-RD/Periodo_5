@@ -19,9 +19,9 @@ public class Personal extends Usuario implements Serializable{
     private String universidade;
     private double valorCobrado;
     
-    @Column (nullable = false)
+    @Column (nullable = true)
     @OneToMany ( mappedBy = "personal",
-    fetch = FetchType.LAZY )
+    fetch = FetchType.EAGER)
     private List<Aluno> alunos;
 
     public Personal() {
