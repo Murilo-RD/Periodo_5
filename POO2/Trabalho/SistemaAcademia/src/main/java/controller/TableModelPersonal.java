@@ -100,7 +100,9 @@ public class TableModelPersonal extends AbstractTableModel{
         this.fireTableDataChanged();
     }
     
-    
+    public Personal getPersonal(int rowIndex){
+        return personais.get(rowIndex);
+    }
     
     
     void adicionar(Personal personal){

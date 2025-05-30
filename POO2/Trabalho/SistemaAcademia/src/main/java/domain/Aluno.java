@@ -27,7 +27,7 @@ public class Aluno extends Usuario implements Serializable {
     private Personal personal;
     
     @ManyToOne
-    @JoinColumn ( name = "idPlano")
+    @JoinColumn (name = "idPlano")
     private Plano plano;
     
 

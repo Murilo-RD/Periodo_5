@@ -7,6 +7,7 @@ package viewer;
 import controller.GerInterGrafica;
 import controller.TableModelAluno;
 import domain.Aluno;
+import domain.Personal;
 import javax.swing.*;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.themes.MaterialLiteTheme;
@@ -38,6 +39,8 @@ public class PrincipalJF extends javax.swing.JFrame {
     
     public void atualizar(){
         modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+        totalAlunsLabel.setText(""+modelAluno.getRowCount());
+        totalPersLabel.setText(""+gerIG.getGerDominio().listar(Personal.class).size());
         calcularTotal();
     }
     
@@ -245,7 +248,7 @@ public class PrincipalJF extends javax.swing.JFrame {
                                     .addComponent(atualizarBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ganhoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );

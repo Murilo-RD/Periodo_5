@@ -3,6 +3,7 @@ package viewer;
 import controller.GerInterGrafica;
 import controller.TableModelPersonal;
 import domain.Personal;
+import domain.Plano;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -35,11 +36,12 @@ public class CadastroJD extends javax.swing.JDialog {
 
     
     public void calcularPlano(){
-        String plano;
-        int frequenciaSemanal;
-        double taxaPersonal;
-        String turnoTreino;
-        
+        String plano = (String) planosCB.getSelectedItem();
+        int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 1;
+        double taxaPersonal = modelPersonal.getPersonal(personalTB.getSelectedRow()).getValorCobrado();
+        String turnoTreino = (String) horarioCB.getSelectedItem();
+        Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);
+        valorLB.setText("R$"+plan.getValor());
         
     
     }
@@ -152,6 +154,9 @@ public class CadastroJD extends javax.swing.JDialog {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        frequenciaLT.setToolTipText("");
+        frequenciaLT.setAutoscrolls(false);
+        frequenciaLT.setSelectedIndex(1);
         jScrollPane1.setViewportView(frequenciaLT);
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,6 +181,11 @@ public class CadastroJD extends javax.swing.JDialog {
         horarioCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matutino", "Vespertino", "Noturno" }));
 
         calcularBT.setText("Calcular Valor");
+        calcularBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcularBTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -579,6 +589,11 @@ public class CadastroJD extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        personalTB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                personalTBMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(personalTB);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -688,6 +703,14 @@ public class CadastroJD extends javax.swing.JDialog {
     private void personalTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personalTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_personalTFActionPerformed
+
+    private void calcularBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularBTActionPerformed
+        calcularPlano();
+    }//GEN-LAST:event_calcularBTActionPerformed
+
+    private void personalTBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personalTBMouseClicked
+       calcularPlano(); // TODO add your handling code here:
+    }//GEN-LAST:event_personalTBMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

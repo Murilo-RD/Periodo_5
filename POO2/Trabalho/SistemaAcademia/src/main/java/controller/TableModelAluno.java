@@ -5,6 +5,7 @@
 package controller;
 
 import domain.Aluno;
+import domain.Plano;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -54,7 +55,8 @@ public class TableModelAluno extends AbstractTableModel{
                return aluno.getPersonal().getNome();
              }
            case 7 -> {
-               return aluno.getPlano().getValor();
+               Plano pla = aluno.getPlano();
+               return pla.getValor();
            }
            case 8 -> {
                return aluno.getPlano().getPlano();

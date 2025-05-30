@@ -74,7 +74,7 @@ public class Plano implements Serializable {
                
              }
            case "Mensal" -> {
-               valor = (valor*4.34)*0.95;
+               valor = (valor*4.34);
              }
            case "Trimestral" -> {
                valor = (valor*(3*4.34))*0.92;
