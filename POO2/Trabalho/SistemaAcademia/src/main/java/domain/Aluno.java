@@ -31,7 +31,6 @@ public class Aluno extends Usuario implements Serializable {
     @JoinColumn (name = "idPlano")
     private Plano plano;
     
-    @Column (nullable = true)
     @OneToMany ( mappedBy = "aluno",
     fetch = FetchType.LAZY )
     private List<Treino> treinos;
@@ -49,7 +48,7 @@ public class Aluno extends Usuario implements Serializable {
     public Aluno() {
     }
 
-    public double getAltura() {
+    public int getAltura() {
         return altura;
     }
 

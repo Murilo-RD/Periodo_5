@@ -19,7 +19,7 @@ import javax.persistence.*;
 public abstract class Usuario implements Serializable {
     
     @Id
-    @GeneratedValue ( strategy = GenerationType.AUTO )
+    @GeneratedValue ( strategy = GenerationType.SEQUENCE )
     private int idUsuario;
     
     @Column (nullable = false)

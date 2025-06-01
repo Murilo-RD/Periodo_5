@@ -56,7 +56,7 @@ public class TableModelAluno extends AbstractTableModel{
              }
            case 7 -> {
                Plano pla = aluno.getPlano();
-               return pla.getValor();
+               return String.format("%.2f",pla.getValor());
            }
            case 8 -> {
                return aluno.getPlano().getPlano();

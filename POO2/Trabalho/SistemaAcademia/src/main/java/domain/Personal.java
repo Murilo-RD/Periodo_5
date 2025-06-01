@@ -5,6 +5,8 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
@@ -18,13 +20,25 @@ public class Personal extends Usuario implements Serializable{
     private String tipoCurso;
     private String universidade;
     private double valorCobrado;
-    
-    @Column (nullable = true)
+
     @OneToMany ( mappedBy = "personal",
     fetch = FetchType.EAGER)
     private List<Aluno> alunos;
 
+    public Personal(String tipoCurso, String universidade, double valorCobrado, String nome, String cpf, Date datNascimento, String sexo) {
+        super(nome, cpf, datNascimento, sexo);
+        this.tipoCurso = tipoCurso;
+        this.universidade = universidade;
+        this.valorCobrado = valorCobrado;
+        alunos = new ArrayList();
+    }
+    
+    
+    
+    
+    
     public Personal() {
+        
     }
 
     public String getTipoCurso() {
@@ -51,13 +65,12 @@ public class Personal extends Usuario implements Serializable{
         this.valorCobrado = valorCobrado;
     }
 
-    public List<Aluno> getAlunos() {
-        return alunos;
+    @Override
+    public String toString() {
+        return this.getNome()+" - "+universidade; 
     }
-
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
+    
+    
     
     
     

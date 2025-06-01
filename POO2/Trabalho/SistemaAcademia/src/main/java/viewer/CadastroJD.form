@@ -196,7 +196,6 @@
                               <Component id="personalTF" min="-2" pref="400" max="-2" attributes="0"/>
                               <Component id="jLabel16" min="-2" pref="81" max="-2" attributes="0"/>
                               <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="selectPersBT" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
@@ -227,8 +226,6 @@
                                   <Component id="personalTF" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="selectPersBT" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -484,9 +481,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="personalTF">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="personalTFActionPerformed"/>
                   </Events>
@@ -500,11 +494,6 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Obs: Selecionar personal na tabela abaixo."/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="selectPersBT">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Selecionar Personal"/>
                   </Properties>
                 </Component>
               </SubComponents>

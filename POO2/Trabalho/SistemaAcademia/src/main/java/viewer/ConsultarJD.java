@@ -6,14 +6,16 @@ package viewer;
 
 import controller.GerInterGrafica;
 import controller.TableModelAluno;
+import controller.TableModelPersonal;
 import domain.Aluno;
+import domain.Personal;
 
 /**
  *
  * @author Xacar
  */
 public class ConsultarJD extends javax.swing.JDialog {
-    
+    private TableModelPersonal modelPersonal =  new TableModelPersonal();
     private TableModelAluno modelAluno = new TableModelAluno();
     private GerInterGrafica gerIG;
     /**
@@ -99,6 +101,7 @@ public class ConsultarJD extends javax.swing.JDialog {
         alunoRB.setBackground(new java.awt.Color(0, 51, 51));
         tipoBG.add(alunoRB);
         alunoRB.setForeground(new java.awt.Color(255, 255, 255));
+        alunoRB.setSelected(true);
         alunoRB.setText("Aluno");
         alunoRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +113,11 @@ public class ConsultarJD extends javax.swing.JDialog {
         tipoBG.add(persRB);
         persRB.setForeground(new java.awt.Color(255, 255, 255));
         persRB.setText("Personal");
+        persRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                persRBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -281,7 +289,9 @@ public class ConsultarJD extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alunoRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoRBActionPerformed
-        // TODO add your handling code here:
+        resultTB.setModel(modelAluno);
+        modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+        altAddTreinoBT.setVisible(true);
     }//GEN-LAST:event_alunoRBActionPerformed
 
     private void nomeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTFActionPerformed
@@ -303,6 +313,12 @@ public class ConsultarJD extends javax.swing.JDialog {
     private void altAddTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altAddTreinoBTActionPerformed
         gerIG.abrirJanelaTreino();
     }//GEN-LAST:event_altAddTreinoBTActionPerformed
+
+    private void persRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persRBActionPerformed
+      resultTB.setModel(modelPersonal);
+      modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+      altAddTreinoBT.setVisible(false);
+    }//GEN-LAST:event_persRBActionPerformed
 
     /**
      * @param args the command line arguments

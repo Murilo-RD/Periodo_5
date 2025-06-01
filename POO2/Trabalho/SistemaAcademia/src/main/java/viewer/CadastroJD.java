@@ -34,6 +34,7 @@ public class CadastroJD extends javax.swing.JDialog {
         personalJP.setVisible(false);
         personalTB.setModel(modelPersonal);
         modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+        personalTF.setEditable(false);
         pack();
     }
 
@@ -44,7 +45,7 @@ public class CadastroJD extends javax.swing.JDialog {
         double taxaPersonal = modelPersonal.getPersonal(personalTB.getSelectedRow()).getValorCobrado();
         String turnoTreino = (String) horarioCB.getSelectedItem();
         Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);
-        valorLB.setText("R$"+plan.getValor());
+        valorLB.setText("R$"+String.format("%.2f",plan.getValor()));
         return plan;
     }
     
@@ -66,10 +67,11 @@ public class CadastroJD extends javax.swing.JDialog {
         }else{
             String universidade = universidadeTF.getText();
             String tipoCurso = (String) cursoCB.getSelectedItem();
-        
+            double valorCobrado = (double) valorPorAlunSP.getValue();
+            Personal pers = new Personal(tipoCurso, universidade, valorCobrado, nome, cpf, datNascimento, sexo);
+            return pers;
         }
         
-        return null;
         
     }
     
@@ -107,7 +109,6 @@ public class CadastroJD extends javax.swing.JDialog {
         jLabel16 = new javax.swing.JLabel();
         personalTF = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        selectPersBT = new javax.swing.JButton();
         personalJP = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         universidadeTF = new javax.swing.JTextField();
@@ -284,7 +285,6 @@ public class CadastroJD extends javax.swing.JDialog {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Personal:");
 
-        personalTF.setEnabled(false);
         personalTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 personalTFActionPerformed(evt);
@@ -294,8 +294,6 @@ public class CadastroJD extends javax.swing.JDialog {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Obs: Selecionar personal na tabela abaixo.");
-
-        selectPersBT.setText("Selecionar Personal");
 
         javax.swing.GroupLayout alunJPLayout = new javax.swing.GroupLayout(alunJP);
         alunJP.setLayout(alunJPLayout);
@@ -314,8 +312,7 @@ public class CadastroJD extends javax.swing.JDialog {
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(personalTF, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(selectPersBT, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -339,9 +336,7 @@ public class CadastroJD extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(personalTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(selectPersBT))
+                        .addComponent(jLabel17))
                     .addGroup(alunJPLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -740,7 +735,8 @@ public class CadastroJD extends javax.swing.JDialog {
     }//GEN-LAST:event_calcularBTActionPerformed
 
     private void personalTBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personalTBMouseClicked
-       calcularPlano(); // TODO add your handling code here:
+        personalTF.setText(modelPersonal.getPersonal(personalTB.getSelectedRow()).toString());
+        calcularPlano(); // TODO add your handling code here:
     }//GEN-LAST:event_personalTBMouseClicked
 
 
@@ -791,7 +787,6 @@ public class CadastroJD extends javax.swing.JDialog {
     private javax.swing.JTextField personalTF;
     private javax.swing.JSpinner pesoSP;
     private javax.swing.JComboBox<String> planosCB;
-    private javax.swing.JButton selectPersBT;
     private javax.swing.JComboBox<String> sexoCB;
     private javax.swing.JTextField universidadeTF;
     private javax.swing.JLabel valorLB;

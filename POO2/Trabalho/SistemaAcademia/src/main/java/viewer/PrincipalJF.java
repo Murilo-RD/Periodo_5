@@ -34,7 +34,7 @@ public class PrincipalJF extends javax.swing.JFrame {
         for(Aluno alun: modelAluno.getList()){
             total=  total+alun.getPlano().getValor();
         }
-        ganhoLabel.setText("R$"+total);
+        ganhoLabel.setText("R$"+String.format("%.2f",total));
     }
     
     public void atualizar(){

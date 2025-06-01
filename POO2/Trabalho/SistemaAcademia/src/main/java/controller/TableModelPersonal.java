@@ -25,7 +25,7 @@ public class TableModelPersonal extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 9;
+        return 8;
     }
 
     @Override
@@ -53,9 +53,6 @@ public class TableModelPersonal extends AbstractTableModel{
            case 6 -> {
                return personal.getValorCobrado();
              }
-           case 7 -> {
-               return personal.getAlunos().size();
-           }
            default -> {
                return null;
              }
@@ -85,9 +82,6 @@ public class TableModelPersonal extends AbstractTableModel{
              }
            case 6 -> {
                return "Valor Dia";
-             }
-           case 7 -> {
-               return "QTD Alunos";
              }
            default -> {
                return null;
