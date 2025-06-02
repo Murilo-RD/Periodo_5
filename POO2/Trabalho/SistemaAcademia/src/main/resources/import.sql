@@ -10,4 +10,3 @@ INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdserie
 INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (30000, 'Pernas', 'Agachamento Livre', 15, 3);
 INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (40000, 'Ombros', 'Desenvolvimento com Halteres', 12, 3);
 INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (50000, 'Bíceps', 'Rosca Direta', 10, 3);
-INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (50001, 'Bíceps', 'Rosca Direta', 10, 3);
