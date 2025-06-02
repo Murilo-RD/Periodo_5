@@ -41,7 +41,7 @@ public class CadastroJD extends javax.swing.JDialog {
     
     public Plano calcularPlano(){
         String plano = (String) planosCB.getSelectedItem();
-        int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 1;
+        int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 2;
         double taxaPersonal = modelPersonal.getPersonal(personalTB.getSelectedRow()).getValorCobrado();
         String turnoTreino = (String) horarioCB.getSelectedItem();
         Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);

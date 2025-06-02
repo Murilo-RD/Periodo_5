@@ -4,6 +4,7 @@
  */
 package domain;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -32,7 +33,7 @@ public class Aluno extends Usuario implements Serializable {
     private Plano plano;
     
     @OneToMany ( mappedBy = "aluno",
-    fetch = FetchType.LAZY )
+    fetch = FetchType.EAGER )
     private List<Treino> treinos;
 
     public Aluno(int altura, double peso, Personal personal, Plano plano, String nome, String cpf, Date datNascimento, String sexo) {
@@ -41,6 +42,10 @@ public class Aluno extends Usuario implements Serializable {
         this.peso = peso;
         this.personal = personal;
         this.plano = plano;
+        treinos= new ArrayList();
+        for(int i=1;plano.getFrequenciaSemanal()>=i;i++ ){
+            treinos.add(new Treino("Dia "+i));
+        }
     }
 
   

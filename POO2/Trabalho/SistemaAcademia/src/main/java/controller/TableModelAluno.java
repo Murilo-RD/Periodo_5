@@ -113,6 +113,9 @@ public class TableModelAluno extends AbstractTableModel{
         return alunos;
     }
     
+    public Aluno getAluno(int idx){
+        return alunos.get(idx);
+    }
     
     
     

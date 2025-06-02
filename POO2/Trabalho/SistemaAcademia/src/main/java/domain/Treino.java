@@ -30,8 +30,13 @@ public class Treino implements Serializable {
     @JoinColumn ( name = "id_aluno")
     private Aluno aluno;
 
+    public Treino(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
+
     public Treino() {
     }
+    
 
     public int getIdTreino() {
         return idTreino;
@@ -63,6 +68,11 @@ public class Treino implements Serializable {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+    }
+
+    @Override
+    public String toString() {
+        return diaSemana;
     }
     
     

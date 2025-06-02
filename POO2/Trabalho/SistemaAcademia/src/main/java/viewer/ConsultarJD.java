@@ -311,7 +311,7 @@ public class ConsultarJD extends javax.swing.JDialog {
     }//GEN-LAST:event_alterarBTActionPerformed
 
     private void altAddTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altAddTreinoBTActionPerformed
-        gerIG.abrirJanelaTreino();
+        gerIG.abrirJanelaTreino(modelAluno.getAluno(resultTB.getSelectedRow()));
     }//GEN-LAST:event_altAddTreinoBTActionPerformed
 
     private void persRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persRBActionPerformed

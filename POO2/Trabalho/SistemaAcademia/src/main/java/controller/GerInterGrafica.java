@@ -4,6 +4,7 @@
  */
 package controller;
 
+import domain.Aluno;
 import java.awt.Frame;
 import java.lang.reflect.InvocationTargetException;
 import javax.swing.JDialog;
@@ -103,8 +104,16 @@ public class GerInterGrafica {
         abrirJanela(janelaPrincipal,janelaAlterar,AlterarJD.class);
     }
     
-    public void abrirJanelaTreino(){
-        abrirJanela(janelaPrincipal,janelaTreino,TreinoJD.class);
+    public void abrirJanelaTreino(Aluno aluno){
+        if(janelaTreino == null )
+            janelaTreino = new TreinoJD(janelaPrincipal,true,this,aluno);
+        else{
+            janelaTreino.setAluno(aluno);    
+        }
+        janelaTreino.setVisible(true);
+            
+       
+        
     }
     
     

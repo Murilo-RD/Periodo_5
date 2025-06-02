@@ -23,18 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" pref="1204" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" min="-2" pref="1190" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -49,24 +43,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel3" min="-2" pref="74" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel4" max="32767" attributes="0"/>
+                          <Component id="alunoLB" min="-2" pref="721" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <Component id="nomeTF" min="-2" pref="176" max="-2" attributes="0"/>
                                       <Component id="qtdSerieSP" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="cadastrarBT" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="consultarBT" min="-2" pref="170" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -76,24 +77,21 @@
                                           <Component id="qtdRepeticoesSP" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox2" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="consultarBT" alignment="0" max="32767" attributes="0"/>
+                              <Component id="addBT" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="cadastrarBT" max="32767" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Component id="removerSistemaBT" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="1057" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -102,18 +100,19 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alunoLB" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="gpMuscularCB" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="nomeTF" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -129,21 +128,19 @@
                               <Component id="qtdRepeticoesSP" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="consultarBT" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cadastrarBT" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="consultarBT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="addBT" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="173" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="removerSistemaBT" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cadastrarBT" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -159,7 +156,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="540" max="32767" attributes="0"/>
+                      <EmptySpace pref="618" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -202,87 +199,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="0" type="rgb"/>
-            </Property>
-          </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Component id="addBT" alignment="0" max="32767" attributes="0"/>
-                          <Component id="removerSistemaBT" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="625" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="161" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="addBT" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="removerSistemaBT" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="10" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JButton" name="addBT">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar exercicio ao treino"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBTActionPerformed"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="exercicioLT">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Exercicios:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="removerSistemaBT">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Remover exercicio do sistema"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
         <Container class="javax.swing.JPanel" name="jPanel14">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -303,29 +219,44 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="atualizarTreinoBT" min="-2" pref="263" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="removerTreinoBT" min="-2" pref="241" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="diaCB" min="-2" pref="178" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="removerTreinoBT" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jScrollPane3" pref="1131" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="atualizarTreinoBT" min="-2" pref="263" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="diaCB" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="removerTreinoBT" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="atualizarTreinoBT" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="216" max="-2" attributes="0"/>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="atualizarTreinoBT" min="-2" pref="59" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -365,6 +296,27 @@
                 <Property name="text" type="java.lang.String" value="Atualizar Treino"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel10">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Dia de treino:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="diaCB">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diaCBActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -378,7 +330,7 @@
             <Property name="text" type="java.lang.String" value="Aluno:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="alunoLB">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
@@ -455,33 +407,52 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Dia de treino:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2ActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JButton" name="consultarBT">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Exercicio"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarBTActionPerformed"/>
+          </Events>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="exercicioLT">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="jLabel7">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Exercicios:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="removerSistemaBT">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remover exercicio do sistema"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="addBT">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Adicionar exercicio ao treino"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBTActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
