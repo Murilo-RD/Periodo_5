@@ -11,8 +11,10 @@ import domain.Aluno;
 import domain.Exercicio;
 import domain.Treino;
 import java.util.Collections;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -21,7 +23,6 @@ import javax.swing.DefaultComboBoxModel;
 public class TreinoJD extends javax.swing.JDialog {
     private TableModelTreino modelTreino = new TableModelTreino();
     private GerInterGrafica gerIG;
-    private ListModelExercicio modelExercicio = new ListModelExercicio();
     private Aluno aluno;
      
     /**
@@ -31,9 +32,8 @@ public class TreinoJD extends javax.swing.JDialog {
         super(parent, modal);
         this.gerIG = gerIG;
         initComponents();
-        modelExercicio.setList(gerIG.getGerDominio().listar(Exercicio.class));
         modelTreino.setList(gerIG.getGerDominio().listar(Treino.class));
-        exercicioLT.setModel(modelExercicio);
+        carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
         treinoTB.setModel(modelTreino);
         setAluno(alun);
         
@@ -57,6 +57,14 @@ public class TreinoJD extends javax.swing.JDialog {
         return exercicio;
     }
     
+    public void carregarLista(List<Exercicio> exercicios){
+        javax.swing.DefaultListModel modelExercicio = new javax.swing.DefaultListModel();
+            for (Exercicio e : exercicios) {
+                modelExercicio.addElement(e);
+            }
+        exercicioLT.setModel(modelExercicio);
+            
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -358,8 +366,8 @@ public class TreinoJD extends javax.swing.JDialog {
 
     private void cadastrarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBTActionPerformed
         gerIG.getGerDominio().inserir(obterExercicio());
-        modelExercicio.setList(gerIG.getGerDominio().listar(Exercicio.class));
-        exercicioLT.setModel(modelExercicio);
+        List<Exercicio> list = gerIG.getGerDominio().listar(Exercicio.class);
+        carregarLista(list);
                 // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarBTActionPerformed
 

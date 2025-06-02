@@ -1,8 +1,13 @@
 INSERT INTO personal (idusuario, cpf, datnascimento, nome, sexo, tipocurso, universidade, valorcobrado) VALUES (99999, '12345678900', '1990-05-10', 'Carlos Silva', 'Masculino', 'Educação Física', 'UFRJ', 20.00);
 INSERT INTO personal (idusuario, cpf, datnascimento, nome, sexo, tipocurso, universidade, valorcobrado) VALUES (99998, '98765432100', '1988-08-20', 'Mariana Souza', 'Feminino', 'Educação Física', 'Estácio', 25.00);
 INSERT INTO personal (idusuario, cpf, datnascimento, nome, sexo, tipocurso, universidade, valorcobrado) VALUES (99997, '11223344556', '1995-07-12', 'Rafael Costa', 'Masculino', 'Educação Física', 'UERJ', 22.00);
-INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (1, 'Peito', 'Supino Reto', 12, 3);
-INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (2, 'Costas', 'Puxada Frontal', 10, 4);
-INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (3, 'Pernas', 'Agachamento Livre', 15, 3);
-INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (4, 'Ombros', 'Desenvolvimento com Halteres', 12, 3);
-INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (5, 'Bíceps', 'Rosca Direta', 10, 3);
+INSERT INTO plano (idplano, frequenciasemanal, plano, turnotreino, valor, taxapersonal) VALUES (1000, 3, 'Mensal', 'Matutino', 150.00, 15.00);
+INSERT INTO plano (idplano, frequenciasemanal, plano, turnotreino, valor, taxapersonal) VALUES (2000, 5, 'Semestral', 'Vespertino', 800.00, 12.00);
+INSERT INTO aluno (idusuario, cpf, datnascimento, nome, sexo, altura, peso, id_personal, idplano) VALUES (1000, '11122233344', '2000-01-01', 'João Pedro', 'Masculino', 180, 75.0, 99999, 1000);
+INSERT INTO aluno (idusuario, cpf, datnascimento, nome, sexo, altura, peso, id_personal, idplano) VALUES (1100, '55566677788', '1998-03-15', 'Ana Paula', 'Feminino', 165, 60.0, 99998, 2000);
+INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (10000, 'Peito', 'Supino Reto', 12, 3);
+INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (20000, 'Costas', 'Puxada Frontal', 10, 4);
+INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (30000, 'Pernas', 'Agachamento Livre', 15, 3);
+INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (40000, 'Ombros', 'Desenvolvimento com Halteres', 12, 3);
+INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (50000, 'Bíceps', 'Rosca Direta', 10, 3);
+INSERT INTO exercicio (idexercicio, grupomuscular, nome, qtdrepeticoes, qtdseries) VALUES (50001, 'Bíceps', 'Rosca Direta', 10, 3);

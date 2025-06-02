@@ -12,6 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 /**
@@ -29,6 +31,10 @@ public class Exercicio implements Serializable {
     private String grupoMuscular;
     private int qtdRepeticoes;
     private int qtdSeries;
+    
+    @ManyToMany ( fetch = FetchType.LAZY )
+    @JoinTable ( name="Treino_Exercicio",joinColumns = { @JoinColumn (name="idExercicio") },inverseJoinColumns = { @JoinColumn(name="idTreino") })
+    private List<Treino> treino;
     
     
     public Exercicio() {

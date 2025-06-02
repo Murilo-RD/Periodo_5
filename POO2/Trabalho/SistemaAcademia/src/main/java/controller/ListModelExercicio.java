@@ -22,6 +22,7 @@ public class ListModelExercicio implements ListModel {
     
     public void setList(List<Exercicio> exercicios) {
         this.exercicios = exercicios;
+        
     }
     
     

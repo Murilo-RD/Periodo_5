@@ -9,7 +9,7 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/AxiAcademia</property>  
     
     <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">postgres</property> 
+    <property name="hibernate.connection.password">57601</property> 
 
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
