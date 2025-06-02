@@ -10,6 +10,7 @@ import controller.TableModelTreino;
 import domain.Aluno;
 import domain.Exercicio;
 import domain.Treino;
+import java.util.Collections;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 
@@ -42,10 +43,21 @@ public class TreinoJD extends javax.swing.JDialog {
         this.aluno = aluno;
         alunoLB.setText(aluno.getNome());
         modelTreino.setList(aluno.getTreinos());
+         Collections.sort(aluno.getTreinos());
         diaCB.setModel(new javax.swing.DefaultComboBoxModel(aluno.getTreinos().toArray()));
         diaCB.updateUI();
     }
-     
+    
+    public Exercicio obterExercicio(){
+        String nome = nomeTF.getText();
+        String grupo = (String) gpMuscularCB.getSelectedItem();
+        int repeticoes = (int) qtdRepeticoesSP.getValue();
+        int series = (int) qtdSerieSP.getValue();
+        Exercicio exercicio = new Exercicio(nome,grupo,series,repeticoes);
+        return exercicio;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -166,13 +178,11 @@ public class TreinoJD extends javax.swing.JDialog {
                                 .addComponent(diaCB, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(removerTreinoBT)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1131, Short.MAX_VALUE)
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(atualizarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1131, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(atualizarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -207,6 +217,8 @@ public class TreinoJD extends javax.swing.JDialog {
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Grupo Muscular:");
+
+        gpMuscularCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costas", "Peito", "Perna", "Braço" }));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nome:");
@@ -252,14 +264,6 @@ public class TreinoJD extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(alunoLB, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8)
@@ -283,7 +287,15 @@ public class TreinoJD extends javax.swing.JDialog {
                             .addComponent(jLabel7)
                             .addComponent(jScrollPane1)
                             .addComponent(removerSistemaBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(1057, 1057, 1057))))
+                        .addGap(1057, 1057, 1057))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(alunoLB, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +357,10 @@ public class TreinoJD extends javax.swing.JDialog {
     }//GEN-LAST:event_addBTActionPerformed
 
     private void cadastrarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBTActionPerformed
-        // TODO add your handling code here:
+        gerIG.getGerDominio().inserir(obterExercicio());
+        modelExercicio.setList(gerIG.getGerDominio().listar(Exercicio.class));
+        exercicioLT.setModel(modelExercicio);
+                // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarBTActionPerformed
 
     private void diaCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaCBActionPerformed

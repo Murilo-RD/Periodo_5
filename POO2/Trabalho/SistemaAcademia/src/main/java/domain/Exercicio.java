@@ -30,12 +30,18 @@ public class Exercicio implements Serializable {
     private int qtdRepeticoes;
     private int qtdSeries;
     
-    @ManyToMany ( mappedBy = "exercicios", fetch = FetchType.LAZY )
-    private List<Treino> treinos;
-
+    
     public Exercicio() {
     }
 
+    public Exercicio(String nome, String grupoMuscular, int qtdRepeticoes, int qtdSeries) {
+        this.nome = nome;
+        this.grupoMuscular = grupoMuscular;
+        this.qtdRepeticoes = qtdRepeticoes;
+        this.qtdSeries = qtdSeries;
+    }
+
+    
     @Override
     public String toString() {
         return nome+" - "+qtdSeries+" x "+qtdRepeticoes;

@@ -14,7 +14,7 @@ import javax.persistence.*;
  * @author 2023122760220
  */
 @Entity
-public class Treino implements Serializable {
+public class Treino implements Serializable, Comparable<Treino> {
     @Id
     @GeneratedValue ( strategy = GenerationType.IDENTITY )
     private int idTreino;
@@ -30,8 +30,9 @@ public class Treino implements Serializable {
     @JoinColumn ( name = "id_aluno")
     private Aluno aluno;
 
-    public Treino(String diaSemana) {
+    public Treino(String diaSemana,Aluno alun) {
         this.diaSemana = diaSemana;
+        this.aluno = alun;
     }
 
     public Treino() {
@@ -73,6 +74,11 @@ public class Treino implements Serializable {
     @Override
     public String toString() {
         return diaSemana;
+    }
+
+    @Override
+    public int compareTo(Treino p) {
+        return this.getDiaSemana().compareTo(p.getDiaSemana());
     }
     
     
