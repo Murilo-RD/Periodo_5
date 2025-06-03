@@ -83,7 +83,7 @@ public class TreinoJD extends javax.swing.JDialog {
         jScrollPane3 = new javax.swing.JScrollPane();
         treinoTB = new javax.swing.JTable();
         removerTreinoBT = new javax.swing.JButton();
-        atualizarTreinoBT = new javax.swing.JButton();
+        alterarTreinoBT = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         diaCB = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -161,7 +161,7 @@ public class TreinoJD extends javax.swing.JDialog {
             }
         });
 
-        atualizarTreinoBT.setText("Atualizar Treino");
+        alterarTreinoBT.setText("Alterar Treino");
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Dia de treino:");
@@ -190,7 +190,7 @@ public class TreinoJD extends javax.swing.JDialog {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1131, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(atualizarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(alterarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -204,7 +204,7 @@ public class TreinoJD extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(atualizarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(alterarTreinoBT, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -390,8 +390,8 @@ public class TreinoJD extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBT;
+    private javax.swing.JButton alterarTreinoBT;
     private javax.swing.JLabel alunoLB;
-    private javax.swing.JButton atualizarTreinoBT;
     private javax.swing.JButton cadastrarBT;
     private javax.swing.JButton consultarBT;
     private javax.swing.JComboBox<String> diaCB;

@@ -234,7 +234,7 @@
                           <Component id="jScrollPane3" alignment="0" pref="1131" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="atualizarTreinoBT" min="-2" pref="263" max="-2" attributes="0"/>
+                              <Component id="alterarTreinoBT" min="-2" pref="263" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -253,7 +253,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="216" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="atualizarTreinoBT" min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="alterarTreinoBT" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -289,9 +289,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removerTreinoBTActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="atualizarTreinoBT">
+            <Component class="javax.swing.JButton" name="alterarTreinoBT">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Atualizar Treino"/>
+                <Property name="text" type="java.lang.String" value="Alterar Treino"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
