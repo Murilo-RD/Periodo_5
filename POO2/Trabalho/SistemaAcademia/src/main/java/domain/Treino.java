@@ -27,7 +27,7 @@ public class Treino implements Serializable, Comparable<Treino> {
     private List<Exercicio> exercicios;
     //teste
     @ManyToOne
-    @JoinColumn ( name = "id_aluno")
+    @JoinColumn ( name = "idUsuario")
     private Aluno aluno;
 
     public Treino(String diaSemana,Aluno alun) {
