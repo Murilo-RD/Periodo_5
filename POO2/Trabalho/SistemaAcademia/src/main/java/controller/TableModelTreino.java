@@ -32,7 +32,7 @@ public class TableModelTreino extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 7;
+        return treinos.size();
     }
 
     @Override
@@ -82,7 +82,6 @@ public class TableModelTreino extends AbstractTableModel{
     
     public void setList(List<Treino> lista){
         treinos = lista;
-        this.fireTableDataChanged();
     }
     
     

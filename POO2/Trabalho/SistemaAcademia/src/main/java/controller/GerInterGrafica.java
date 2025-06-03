@@ -106,9 +106,9 @@ public class GerInterGrafica {
     
     public void abrirJanelaTreino(Aluno aluno){
         if(janelaTreino == null )
-            janelaTreino = new TreinoJD(janelaPrincipal,true,this,aluno);
+            janelaTreino = new TreinoJD(janelaPrincipal,true,this, (Aluno) gerDominio.get(Aluno.class,aluno.getIdUsuario()));
         else{
-            janelaTreino.setAluno(aluno);    
+            janelaTreino.setAluno((Aluno) gerDominio.get(Aluno.class,aluno.getIdUsuario()));    
         }
         janelaTreino.setVisible(true);
             

@@ -22,7 +22,7 @@ public class Treino implements Serializable, Comparable<Treino> {
     @Column (nullable = false)
     private String diaSemana;
     
-    @ManyToMany ( fetch = FetchType.EAGER )
+    @ManyToMany ( fetch = FetchType.EAGER, cascade = CascadeType.ALL )
     @JoinTable ( name="Treino_Exercicio",joinColumns = { @JoinColumn (name="idTreino") },inverseJoinColumns = { @JoinColumn(name="idExercicio") })
     private List<Exercicio> exercicios;
     //teste
@@ -71,6 +71,10 @@ public class Treino implements Serializable, Comparable<Treino> {
         this.aluno = aluno;
     }
 
+    public void addExercicio(Exercicio e){
+       exercicios.add(e);
+    }
+    
     @Override
     public String toString() {
         return diaSemana;

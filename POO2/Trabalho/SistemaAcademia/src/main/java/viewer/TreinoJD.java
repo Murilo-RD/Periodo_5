@@ -22,6 +22,7 @@ import javax.swing.DefaultListModel;
  */
 public class TreinoJD extends javax.swing.JDialog {
     private TableModelTreino modelTreino = new TableModelTreino();
+    javax.swing.DefaultListModel modelExercicio;
     private GerInterGrafica gerIG;
     private Aluno aluno;
      
@@ -32,20 +33,21 @@ public class TreinoJD extends javax.swing.JDialog {
         super(parent, modal);
         this.gerIG = gerIG;
         initComponents();
-        modelTreino.setList(gerIG.getGerDominio().listar(Treino.class));
         carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
-        treinoTB.setModel(modelTreino);
         setAluno(alun);
         
     }
 
     public void setAluno(Aluno aluno){
         this.aluno = aluno;
+        System.out.println(aluno.getTreinos());
         alunoLB.setText(aluno.getNome());
+        Collections.sort(aluno.getTreinos());
         modelTreino.setList(aluno.getTreinos());
-         Collections.sort(aluno.getTreinos());
+        treinoTB.setModel(modelTreino);
         diaCB.setModel(new javax.swing.DefaultComboBoxModel(aluno.getTreinos().toArray()));
         diaCB.updateUI();
+        treinoTB.updateUI();
     }
     
     public Exercicio obterExercicio(){
@@ -58,7 +60,7 @@ public class TreinoJD extends javax.swing.JDialog {
     }
     
     public void carregarLista(List<Exercicio> exercicios){
-        javax.swing.DefaultListModel modelExercicio = new javax.swing.DefaultListModel();
+        modelExercicio = new javax.swing.DefaultListModel();
             for (Exercicio e : exercicios) {
                 modelExercicio.addElement(e);
             }
@@ -162,6 +164,11 @@ public class TreinoJD extends javax.swing.JDialog {
         });
 
         alterarTreinoBT.setText("Alterar Treino");
+        alterarTreinoBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarTreinoBTActionPerformed(evt);
+            }
+        });
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Dia de treino:");
@@ -361,6 +368,13 @@ public class TreinoJD extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTActionPerformed
+        int indice = exercicioLT.getSelectedIndex();
+        Exercicio ex = (Exercicio) modelExercicio.get(indice);
+        indice = diaCB.getSelectedIndex();
+        aluno.getTreinos().get(indice).addExercicio(ex);
+        modelTreino.setList(aluno.getTreinos());
+        treinoTB.updateUI();
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_addBTActionPerformed
 
@@ -382,6 +396,12 @@ public class TreinoJD extends javax.swing.JDialog {
     private void consultarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_consultarBTActionPerformed
+
+    private void alterarTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarTreinoBTActionPerformed
+
+            gerIG.getGerDominio().alterar(aluno);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alterarTreinoBTActionPerformed
 
     /**
      * @param args the command line arguments

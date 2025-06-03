@@ -29,6 +29,14 @@ public class GerDominio {
         return genDAO.listar(classe);      
     }
     
+    public Object get(Class classe,int id) throws HibernateException {
+        return genDAO.get(classe,id);      
+    }
+    
+    public void alterar(Object obj) throws HibernateException {
+        genDAO.alterar(obj);      
+    }
+    
     public void excluir(Object obj) throws HibernateException {
         genDAO.excluir(obj);
     }
