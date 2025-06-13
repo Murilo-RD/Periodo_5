@@ -1,0 +1,157 @@
+:root {
+    --bg-color: #1e1f29;
+    --card-color: #2a2b3d;
+    --input-bg: #35364a;
+    --text-color: #f1f1f1;
+    --accent: #00c8ff;
+    --accent-hover: #00a0cc;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    color: var(--accent);
+  }
+
+  .card {
+    background: var(--card-color);
+    padding: 25px 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .form-group input {
+    flex: 1 1 30%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--input-bg);
+    color: white;
+    transition: 0.3s;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 6px var(--accent);
+  }
+
+  .form-group button {
+    flex: 1 1 100%;
+    padding: 12px;
+    background-color: var(--accent);
+    color: #1e1f29;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .form-group button:hover {
+    background-color: var(--accent-hover);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #444;
+  }
+
+  th {
+    background-color: #15161f;
+    color: var(--accent);
+  }
+
+  td {
+    background-color: #232433;
+  }
+
+  td input {
+    width: 90%;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: white;
+  }
+
+  td button {
+    padding: 6px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  td button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 18px;
+    transition: transform 0.2s ease, color 0.3s;
+    position: relative;
+    color: var(--accent);
+  }
+  
+  td button:hover {
+    transform: scale(1.2);
+    color: white;
+  }
+  
+  td button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #444;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  
+  td button:hover::after {
+    opacity: 1;
+  }
+  .save-btn { background-color: #2ecc71; color: #fff; }
+  .cancel-btn { background-color: #95a5a6; color: #000; }
+
+  @media(max-width: 600px) {
+    .form-group input {
+      flex: 1 1 100%;
+    }
+  }
