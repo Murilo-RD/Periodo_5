@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Murilo Rossoni</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Portfólio de Murilo Rossoni</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#about">Sobre Mim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Educação e Experiência</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#skillsOffcanvas" aria-controls="skillsOffcanvas">Habilidades</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-light py-5 mt-5">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start">
+                        <h1 class="display-5 fw-bolder text-dark mb-2">Olá, eu sou o Murilo Rossoni</h1>
+                        <p class="lead fw-normal text-muted mb-4">(Portifólio Ficticio,  apenas para avaliação da pagina) Estudante de Sistemas de Informação buscando inovar no desenvolvimento de software e análise de sistemas.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3 fs-6" href="#projects">Ver Projetos</a>
+                            <a class="btn btn-outline-dark btn-lg px-4 fs-6" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Entre em Contato</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-xxl-5 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-circle" src="https://png.pngtree.com/png-vector/20250512/ourmid/pngtree-default-avatar-profile-icon-gray-placeholder-vector-png-image_16213764.png" alt="Foto de perfil de Murilo Rossoni" />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    ---
+
+    <section class="py-5 bg-white" id="about">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img class="img-fluid rounded" src="https://img.freepik.com/fotos-gratis/homem-trabalhando-em-casa-no-escritorio-enquanto-toma-uma-bebida_23-2149208566.jpg?semt=ais_items_boosted&w=740" alt="Murilo Rossoni trabalhando" />
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bolder mb-4">Sobre Mim</h2>
+                    <p class="lead fw-normal text-muted mb-0">
+                        Como estudante de **Sistemas de Informação** no IFES - Campus Colatina, busco oportunidades para aplicar
+                        meus conhecimentos acadêmicos em **desenvolvimento de software, análise de sistemas e banco de dados**.
+                        Tenho grande interesse em atuar em projetos tecnológicos que promovam **inovação e eficiência**,
+                        ao mesmo tempo em que me permitem crescer profissionalmente e contribuir para os objetivos da organização.
+                        Sou proativo, disciplinado e possuo boa comunicação para trabalho em equipe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+
+    <section class="py-5 bg-light" id="projects">
+        <div class="container px-5 mb-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bolder mb-0">Meus Projetos</h2>
+                <p class="lead text-muted">Amostras do meu trabalho e aprendizado.</p>
+            </div>
+            <div class="row gx-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card shadow-sm h-100">
+                         <img class="card-img-top" src="https://download.logo.wine/logo/Java_(programming_language)/Java_(programming_language)-Logo.wine.png" alt="Imagem Projeto 1" />
+                        <div class="card-body p-4">
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Java</div>
+                            <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                <h5 class="card-title mb-0">Sistema de Gerenciamento de Biblioteca</h5>
+                                <p class="card-text mb-0">Desenvolvimento de um sistema em Java para catalogação de livros e controle de empréstimos em um ambiente acadêmico.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card shadow-sm h-100">
+                        <img class="card-img-top" src="https://images.seeklogo.com/logo-png/20/2/python-logo-png_seeklogo-207405.png" alt="Imagem Projeto 2" />
+                        <div class="card-body p-4">
+                            <div class="badge bg-secondary bg-gradient rounded-pill mb-2">Python</div>
+                            <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                <h5 class="card-title mb-0">Análise de Dados de Vendas</h5>
+                                <p class="card-text mb-0">Projeto utilizando Python para extração, limpeza e análise de dados de vendas de e-commerce, gerando insights para tomada de decisão.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card shadow-sm h-100">
+                        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlOfxHyW5vDmJuS44I6ud2H-O1bc0OwNV2oA&s" alt="Imagem Projeto 3" />
+                        <div class="card-body p-4">
+                            <div class="badge bg-warning bg-gradient rounded-pill mb-2">Flutter & Dart</div>
+                            <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                <h5 class="card-title mb-0">Protótipo de Aplicativo de Agendamento</h5>
+                                <p class="card-text mb-0">Desenvolvimento de um protótipo de aplicativo mobile para agendamento de serviços, focado na experiência do usuário.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    ---
+
+    <section class="py-5 bg-white" id="experience">
+        <div class="container px-5 my-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bolder mb-0">Educação e Experiência</h2>
+            </div>
+            <div class="accordion" id="experienceAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Formação Acadêmica
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <strong>Curso:</strong> Bacharelado em Sistemas de Informação<br>
+                            <strong>Instituição:</strong> IFES - Campus Colatina<br>
+                            <strong>Período:</strong> Janeiro de 2023 – Dezembro de 2026 (Previsão de Conclusão)<br>
+                            <strong>Detalhes:</strong> Estudo aprofundado em desenvolvimento de software, banco de dados, redes de computadores, inteligência artificial e gestão de TI. Foco em projetos práticos e inovação tecnológica.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Experiência Profissional
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <strong>Cargo:</strong> Estagiário de Desenvolvimento Front-end<br>
+                            <strong>Empresa:</strong> InovaTech Soluções Digitais (Colatina, ES)<br>
+                            <strong>Período:</strong> Março de 2024 – Atualmente<br>
+                            <strong>Principais Responsabilidades e Conquistas:</strong>
+                            <ul>
+                                <li>Desenvolvimento e manutenção de interfaces de usuário utilizando **HTML, CSS e JavaScript** para projetos internos e clientes, otimizando a experiência do usuário.</li>
+                                <li>Colaboração ativa na implementação de componentes visuais com **Bootstrap e React**, garantindo a responsividade e compatibilidade entre navegadores.</li>
+                                <li>Participação em reuniões diárias de **Scrum**, contribuindo com ideias e acompanhando o progresso das tarefas em equipe.</li>
+                                <li>Realização de testes básicos de usabilidade para identificar e corrigir falhas nas interfaces desenvolvidas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Línguas
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><strong>Português:</strong> Nativo</li>
+                                <li><strong>Inglês:</strong> Iniciante</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="skillsOffcanvas" aria-labelledby="skillsOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="skillsOffcanvasLabel">Minhas Habilidades</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h4>Linguagens de Programação e Ferramentas</h4>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-file-earmark-code-fill"></i> C</li>
+                <li><i class="bi-file-earmark-code-fill"></i> Java</li>
+                <li><i class="bi-file-earmark-code-fill"></i> Python</li>
+                <li><i class="bi-file-earmark-code-fill"></i> Dart</li>
+                <li><i class="bi-file-earmark-code-fill"></i> C++</li>
+                <li><i class="bi-phone-fill"></i> Flutter</li>
+                <li><i class="bi-database-fill"></i> Conhecimento em Banco de Dados (SQL)</li>
+                <li><i class="bi-terminal-fill"></i> Análise de Sistemas</li>
+            </ul>
+            <hr>
+            <h4>Habilidades Interpessoais (Soft Skills)</h4>
+            <ul class="list-unstyled">
+                <li>Bom relacionamento interpessoal para trabalho em equipe</li>
+                <li>Disposição para o aprendizado e aprimoramento contínuos</li>
+                <li>Proatividade e iniciativa para resolução de problemas</li>
+                <li>Capacidade de planejamento e organização do trabalho</li>
+                <li>Capacidade de aprendizagem rápida</li>
+                <li>Boa comunicação com a equipe</li>
+                <li>Disciplina para seguir normas</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Entre em Contato</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Endereço de E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                         <div class="mb-3">
+                            <label for="phone" class="form-label">Telefone (Opcional)</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Assunto</label>
+                            <input type="text" class="form-control" id="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Sua Mensagem</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                    <div id="form-response" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; Murilo Rossoni 2024</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const responseDiv = document.getElementById('form-response');
+
+            responseDiv.innerHTML = '<div class="alert alert-success" role="alert">Mensagem enviada com sucesso! Em breve entrarei em contato.</div>';
+            document.getElementById('contactForm').reset(); 
+
+            
+            setTimeout(() => {
+                const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+                contactModal.hide();
+                responseDiv.innerHTML = ''; 
+            }, 3000); 
+        });
+    </script>
+</body>
+</html>

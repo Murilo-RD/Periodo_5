@@ -40,7 +40,6 @@ public class TreinoJD extends javax.swing.JDialog {
 
     public void setAluno(Aluno aluno){
         this.aluno = aluno;
-        System.out.println(aluno.getTreinos());
         alunoLB.setText(aluno.getNome());
         Collections.sort(aluno.getTreinos());
         modelTreino.setList(aluno.getTreinos());

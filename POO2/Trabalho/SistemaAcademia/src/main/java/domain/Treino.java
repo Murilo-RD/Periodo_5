@@ -5,6 +5,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -22,9 +23,9 @@ public class Treino implements Serializable, Comparable<Treino> {
     @Column (nullable = false)
     private String diaSemana;
     
-    @ManyToMany ( fetch = FetchType.EAGER, cascade = CascadeType.ALL )
+    @ManyToMany ( fetch = FetchType.LAZY )
     @JoinTable ( name="Treino_Exercicio",joinColumns = { @JoinColumn (name="idTreino") },inverseJoinColumns = { @JoinColumn(name="idExercicio") })
-    private List<Exercicio> exercicios;
+    private List<Exercicio> exercicios = new ArrayList();
     //teste
     @ManyToOne
     @JoinColumn ( name = "idUsuario")

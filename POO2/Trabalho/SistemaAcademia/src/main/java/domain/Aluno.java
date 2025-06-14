@@ -42,10 +42,6 @@ public class Aluno extends Usuario implements Serializable {
         this.peso = peso;
         this.personal = personal;
         this.plano = plano;
-        treinos= new ArrayList();
-        for(int i=1;i<=plano.getFrequenciaSemanal();i++ ){
-            treinos.add(new Treino("Dia "+i,this));
-        }
     }
 
   
@@ -86,6 +82,12 @@ public class Aluno extends Usuario implements Serializable {
     }
 
     public List<Treino> getTreinos() {
+        if (treinos == null||treinos.isEmpty()){
+            treinos= new ArrayList();
+            for(int i=1;i<=plano.getFrequenciaSemanal();i++ ){
+                treinos.add(new Treino("Dia "+i,this));
+            }
+        }
         return treinos;
     }
 
