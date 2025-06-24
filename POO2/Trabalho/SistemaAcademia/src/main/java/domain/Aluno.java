@@ -33,7 +33,7 @@ public class Aluno extends Usuario implements Serializable {
     private Plano plano;
     
     @OneToMany ( mappedBy = "aluno",
-    fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Treino> treinos;
 
     public Aluno(int altura, double peso, Personal personal, Plano plano, String nome, String cpf, Date datNascimento, String sexo) {

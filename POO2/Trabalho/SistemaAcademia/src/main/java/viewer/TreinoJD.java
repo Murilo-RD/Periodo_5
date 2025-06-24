@@ -40,10 +40,12 @@ public class TreinoJD extends javax.swing.JDialog {
 
     public void setAluno(Aluno aluno){
         this.aluno = aluno;
+        gerIG.getGerDominio().carregarTreino(aluno);
         alunoLB.setText(aluno.getNome());
         Collections.sort(aluno.getTreinos());
         modelTreino.setList(aluno.getTreinos());
         treinoTB.setModel(modelTreino);
+        treinoTB.updateUI();
         diaCB.setModel(new javax.swing.DefaultComboBoxModel(aluno.getTreinos().toArray()));
         diaCB.updateUI();
         treinoTB.updateUI();
@@ -397,7 +399,6 @@ public class TreinoJD extends javax.swing.JDialog {
     }//GEN-LAST:event_consultarBTActionPerformed
 
     private void alterarTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarTreinoBTActionPerformed
-
             gerIG.getGerDominio().alterar(aluno);
         // TODO add your handling code here:
     }//GEN-LAST:event_alterarTreinoBTActionPerformed

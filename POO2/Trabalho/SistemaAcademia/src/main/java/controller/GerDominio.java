@@ -6,6 +6,9 @@ package controller;
 
 import dao.ConexaoHibernate;
 import dao.GenericDAO;
+import dao.AlunoDAO;
+import domain.Aluno;
+import domain.Treino;
 import java.util.List;
 import org.hibernate.HibernateException;
 /**
@@ -14,11 +17,13 @@ import org.hibernate.HibernateException;
  */
 public class GerDominio {
       private GenericDAO genDAO;
+      private AlunoDAO alunoDAO;
     
      public GerDominio() throws java.lang.ExceptionInInitializerError, HibernateException {
         // ConexaoMySQL.obterConexao();
         ConexaoHibernate.getSessionFactory().openSession();
         genDAO = new GenericDAO();
+        alunoDAO = new AlunoDAO();
      }
      
     public void inserir(Object obj){
@@ -27,6 +32,10 @@ public class GerDominio {
      
     public List listar(Class classe) throws HibernateException {
         return genDAO.listar(classe);      
+    }
+    
+    public List<Treino> carregarTreino(Aluno alun) throws HibernateException {
+        return alunoDAO.carregarTreino(alun);      
     }
     
     public Object get(Class classe,int id) throws HibernateException {
