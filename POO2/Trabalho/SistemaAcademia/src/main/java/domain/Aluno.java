@@ -24,7 +24,7 @@ public class Aluno extends Usuario implements Serializable {
     private double peso;
     
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn ( name = "id_personal")
     private Personal personal;
     

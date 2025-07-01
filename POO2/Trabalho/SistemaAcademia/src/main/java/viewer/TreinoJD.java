@@ -391,15 +391,25 @@ public class TreinoJD extends javax.swing.JDialog {
     }//GEN-LAST:event_diaCBActionPerformed
 
     private void removerTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerTreinoBTActionPerformed
+        int colum = treinoTB.getSelectedColumn();
+        int row = treinoTB.getSelectedRow();
+        modelTreino.getTreino(colum).getExercicios().remove(row);
+        aluno.setTreinos(modelTreino.getList());
+        modelTreino.setList(aluno.getTreinos());
         // TODO add your handling code here:
     }//GEN-LAST:event_removerTreinoBTActionPerformed
 
     private void consultarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTActionPerformed
+        carregarLista(gerIG.getGerDominio().pesquisarExercicioPorNome(nomeTF.getText()));
+        if(nomeTF.getText().isEmpty()){
+            carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_consultarBTActionPerformed
 
     private void alterarTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarTreinoBTActionPerformed
-            gerIG.getGerDominio().alterar(aluno);
+            
+        gerIG.getGerDominio().alterar(aluno);
         // TODO add your handling code here:
     }//GEN-LAST:event_alterarTreinoBTActionPerformed
 

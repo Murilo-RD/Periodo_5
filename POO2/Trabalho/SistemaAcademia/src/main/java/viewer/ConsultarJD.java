@@ -9,6 +9,7 @@ import controller.TableModelAluno;
 import controller.TableModelPersonal;
 import domain.Aluno;
 import domain.Personal;
+import domain.Usuario;
 
 /**
  *
@@ -299,15 +300,41 @@ public class ConsultarJD extends javax.swing.JDialog {
     }//GEN-LAST:event_nomeTFActionPerformed
 
     private void consultarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTActionPerformed
+
+        
+        if(alunoRB.isSelected()){
+            modelAluno.setList(gerIG.getGerDominio().pesquisarAlunoPorNome(nomeTF.getText())); 
+        }else{
+            modelPersonal.setList(gerIG.getGerDominio().pesquisarPersonalPorNome(nomeTF.getText())); 
+        }
+        if(nomeTF.getText().isEmpty()){
+            modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+            modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+        }
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_consultarBTActionPerformed
 
     private void removerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerBTActionPerformed
-        // TODO add your handling code here:
+        int linha = resultTB.getSelectedRow();
+        if(alunoRB.isSelected()){
+            gerIG.getGerDominio().excluir(modelAluno.getAluno(linha));
+            modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+        }else{
+            gerIG.getGerDominio().excluir(modelPersonal.getPersonal(linha));
+            modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+        }
     }//GEN-LAST:event_removerBTActionPerformed
 
     private void alterarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBTActionPerformed
-        // TODO add your handling code here:
+        Usuario usuario;
+        
+        if(alunoRB.isSelected()){
+            usuario = modelAluno.getAluno(resultTB.getSelectedRow());
+        }else{
+            usuario = modelPersonal.getPersonal(resultTB.getSelectedRow());
+        }
+        gerIG.abrirJanelaAlterar(usuario);
     }//GEN-LAST:event_alterarBTActionPerformed
 
     private void altAddTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altAddTreinoBTActionPerformed

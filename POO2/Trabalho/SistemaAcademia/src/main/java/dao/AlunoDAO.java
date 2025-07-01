@@ -11,6 +11,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -50,6 +51,44 @@ public class AlunoDAO {
         aluno.setTreinos(lista);
         return lista;
     }
+    
+    public List<Aluno> pesquisarAlunoPorNome(String nome) throws HibernateException {
+    List<Aluno> lista = null;
+    Session sessao = null;
+
+    try {
+        sessao = ConexaoHibernate.getSessionFactory().openSession();
+        sessao.beginTransaction();
+
+        
+        CriteriaBuilder builder = sessao.getCriteriaBuilder();
+        CriteriaQuery<Aluno> consulta = builder.createQuery(Aluno.class);
+        Root<Aluno> tabela = consulta.from(Aluno.class);
+
+       
+        Predicate restricao = builder.like(tabela.get("nome"), nome + '%');
+        
+        consulta.where(restricao);
+        
+        
+        consulta.orderBy(builder.asc(tabela.get("nome")));
+
+        lista = sessao.createQuery(consulta).getResultList();
+
+        sessao.getTransaction().commit();
+    } catch (HibernateException ex) {
+        if (sessao != null && sessao.getTransaction().isActive()) {
+            sessao.getTransaction().rollback();
+        }
+        throw new HibernateException("Erro ao pesquisar aluno por nome: " + ex.getMessage());
+    } finally {
+        if (sessao != null) {
+            sessao.close();
+        }
+    }
+
+    return lista;
+}
 }
                 
 

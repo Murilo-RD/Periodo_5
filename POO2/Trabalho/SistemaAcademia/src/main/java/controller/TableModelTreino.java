@@ -91,6 +91,10 @@ public class TableModelTreino extends AbstractTableModel{
         fireTableRowsInserted(treinos.size()-1,treinos.size()-1);
     }  
     
+    public List<Treino> getList(){
+        return treinos;
+    }
+    
     public void remover(Treino treino){
         treinos.remove(treino);
         fireTableRowsInserted(treinos.size()-1,treinos.size()-1);
