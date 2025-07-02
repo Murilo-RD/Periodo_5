@@ -67,6 +67,31 @@ public class Plano implements Serializable {
         this.turnoTreino = turnoTreino;
     }
 
+    public double getValorMensal(){
+        switch(plano){
+           case "Semanal" -> {
+               return getValor()*4.35;
+               
+             }
+           case "Mensal" -> {
+               return getValor();
+             }
+           case "Trimestral" -> {
+               return getValor()/3;
+             }
+           case "Semestral" -> {
+               return getValor()/6;
+             }
+           case "Anual" ->{ 
+               return getValor()/12;
+             }
+           default -> {
+               return 0;
+             }
+        }
+    }  
+    
+    
     public double getValor() {
         valor = (5 + taxaPersonal) * frequenciaSemanal;
         switch(plano){

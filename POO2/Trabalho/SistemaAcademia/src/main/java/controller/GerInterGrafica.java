@@ -35,11 +35,13 @@ public class GerInterGrafica {
     AlterarJD janelaAlterar = null;
     TreinoJD janelaTreino = null;
     private GerDominio gerDominio;
+    private GerenciadorRelatorios gerRelatorios;
     
     
     public GerInterGrafica() {
        try {
             gerDominio = new GerDominio();
+            gerRelatorios = new GerenciadorRelatorios();
         } catch (java.lang.ExceptionInInitializerError | HibernateException ex) {
             JOptionPane.showMessageDialog(null, ex, "Erro ao inicializar.", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
@@ -81,6 +83,10 @@ public class GerInterGrafica {
         return dlg;
     }    
 
+    public GerenciadorRelatorios getGerRelatorios() {
+        return gerRelatorios;
+    }
+    
     public GerDominio getGerDominio() {
         return gerDominio;
     }
