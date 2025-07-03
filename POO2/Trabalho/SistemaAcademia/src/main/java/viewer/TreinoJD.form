@@ -70,11 +70,11 @@
                                   </Group>
                               </Group>
                               <Component id="consultarBT" alignment="0" max="32767" attributes="0"/>
-                              <Component id="addBT" max="32767" attributes="0"/>
+                              <Component id="cadastrarBT" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cadastrarBT" max="32767" attributes="0"/>
+                              <Component id="addBT" max="32767" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" max="32767" attributes="0"/>
                               <Component id="removerSistemaBT" alignment="0" max="32767" attributes="0"/>
@@ -130,15 +130,15 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="consultarBT" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="addBT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cadastrarBT" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" min="-2" pref="173" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="removerSistemaBT" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cadastrarBT" min="-2" max="-2" attributes="0"/>
+                  <Component id="addBT" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="18" max="32767" attributes="0"/>
