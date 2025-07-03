@@ -44,7 +44,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="123" splitType="Stretch">
+		<band height="138" splitType="Stretch">
 			<staticText>
 				<reportElement x="133" y="32" width="308" height="58" forecolor="#006666" uuid="4ba7c515-56a9-41e5-bee3-7d5ea0395d52"/>
 				<textElement textAlignment="Center">
@@ -52,10 +52,13 @@
 				</textElement>
 				<text><![CDATA[AXI ACADEMIA]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="101" height="123" uuid="457e82f3-a583-4559-8aaa-ee16d32b20d0"/>
-				<imageExpression><![CDATA[($P{CAMINHO_MANUAL_PREVIEW} ?: ($P{SUBREPORT_DIR}) + "..\\logo Academia Axi (1).jpeg")]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="133" y="112" width="319" height="26" forecolor="#006666" uuid="26f861c9-3695-4882-98d6-1e583e85c130"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TABELA DE GANHOS MENSAIS]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
