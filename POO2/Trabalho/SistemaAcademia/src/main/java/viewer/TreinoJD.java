@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,12 +34,19 @@ public class TreinoJD extends javax.swing.JDialog {
         super(parent, modal);
         this.gerIG = gerIG;
         initComponents();
-        carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
-        setAluno(alun);
+        try {
+            System.out.println("ooooooooooooooooooooooooooo");
+            carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
+            setAluno(alun);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao inicializar a tela de treino: " + e.getMessage(), "Erro Crítico", JOptionPane.ERROR_MESSAGE);
+            this.dispose();
+        }
         
     }
 
     public void setAluno(Aluno aluno){
+        
         this.aluno = aluno;
         gerIG.getGerDominio().carregarTreino(aluno);
         alunoLB.setText(aluno.getNome());
@@ -67,6 +75,25 @@ public class TreinoJD extends javax.swing.JDialog {
             }
         exercicioLT.setModel(modelExercicio);
             
+    }
+    
+     private boolean validarExercicio() {
+        if (nomeTF.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "O campo 'Nome' do exercício é obrigatório.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+            nomeTF.requestFocus();
+            return false;
+        }
+        if ((int) qtdSerieSP.getValue() <= 0) {
+            JOptionPane.showMessageDialog(this, "A quantidade de 'Séries' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+            qtdSerieSP.requestFocus();
+            return false;
+        }
+        if ((int) qtdRepeticoesSP.getValue() <= 0) {
+            JOptionPane.showMessageDialog(this, "A quantidade de 'Repetições' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+            qtdRepeticoesSP.requestFocus();
+            return false;
+        }
+        return true;
     }
     
     /**
@@ -262,6 +289,11 @@ public class TreinoJD extends javax.swing.JDialog {
         jLabel7.setText("Exercicios:");
 
         removerSistemaBT.setText("Remover exercicio do sistema");
+        removerSistemaBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerSistemaBTActionPerformed(evt);
+            }
+        });
 
         addBT.setText("Adicionar exercicio ao treino");
         addBT.addActionListener(new java.awt.event.ActionListener() {
@@ -369,20 +401,59 @@ public class TreinoJD extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTActionPerformed
-        int indice = exercicioLT.getSelectedIndex();
-        Exercicio ex = (Exercicio) modelExercicio.get(indice);
-        indice = diaCB.getSelectedIndex();
-        aluno.getTreinos().get(indice).addExercicio(ex);
-        modelTreino.setList(aluno.getTreinos());
-        treinoTB.updateUI();
+        int exIndex = exercicioLT.getSelectedIndex();
+        int diaIndex = diaCB.getSelectedIndex();
+
+        if (exIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um exercício da lista para adicionar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (diaIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um dia de treino.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            Exercicio ex = (Exercicio) modelExercicio.getElementAt(exIndex);
+            Treino treinoDoDia = (Treino) diaCB.getSelectedItem();
+            
+            if (treinoDoDia.getExercicios().contains(ex)) {
+                JOptionPane.showMessageDialog(this, "Este exercício já foi adicionado ao treino deste dia.", "Exercício Duplicado", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            treinoDoDia.addExercicio(ex);
+            modelTreino.fireTableDataChanged();
+            treinoTB.updateUI();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao adicionar o exercício: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
         
-        // TODO add your handling code here:
     }//GEN-LAST:event_addBTActionPerformed
 
     private void cadastrarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBTActionPerformed
-        gerIG.getGerDominio().inserir(obterExercicio());
-        List<Exercicio> list = gerIG.getGerDominio().listar(Exercicio.class);
-        carregarLista(list);
+         if (!validarExercicio()) {
+            return;
+        }
+        
+        int confirma = JOptionPane.showConfirmDialog(this, "Deseja cadastrar este novo exercício no sistema?", "Confirmar Cadastro", JOptionPane.YES_NO_OPTION);
+        if (confirma != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        try {
+            gerIG.getGerDominio().inserir(obterExercicio());
+            JOptionPane.showMessageDialog(this, "Exercício cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            
+            nomeTF.setText("");
+            qtdRepeticoesSP.setValue(1);
+            qtdSerieSP.setValue(1);
+            carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao cadastrar exercício: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
                 // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarBTActionPerformed
 
@@ -391,28 +462,103 @@ public class TreinoJD extends javax.swing.JDialog {
     }//GEN-LAST:event_diaCBActionPerformed
 
     private void removerTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerTreinoBTActionPerformed
-        int colum = treinoTB.getSelectedColumn();
-        int row = treinoTB.getSelectedRow();
-        modelTreino.getTreino(colum).getExercicios().remove(row);
-        aluno.setTreinos(modelTreino.getList());
-        modelTreino.setList(aluno.getTreinos());
-        // TODO add your handling code here:
+       int colum = treinoTB.getSelectedColumn();
+       int row = treinoTB.getSelectedRow();
+
+        if (colum == -1||row == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um exercicio na tabela de treino.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       
+        
+        int confirma = JOptionPane.showConfirmDialog(this, "Deseja remover o exercício selecionado deste treino?", "Confirmar Remoção", JOptionPane.YES_NO_OPTION);
+        if (confirma != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        try {
+            modelTreino.getTreino(colum).getExercicios().remove(row);
+            aluno.setTreinos(modelTreino.getList());
+            modelTreino.setList(aluno.getTreinos());
+            
+            modelTreino.fireTableDataChanged();
+            treinoTB.updateUI();
+            JOptionPane.showMessageDialog(this, "Exercício removido do treino.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao remover o exercício do treino: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_removerTreinoBTActionPerformed
 
     private void consultarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTActionPerformed
-        carregarLista(gerIG.getGerDominio().pesquisarExercicioPorNome(nomeTF.getText()));
-        if(nomeTF.getText().isEmpty()){
-            carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
+        try {
+            if (nomeTF.getText().trim().isEmpty()) {
+                carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
+            } else {
+                carregarLista(gerIG.getGerDominio().pesquisarExercicioPorNome(nomeTF.getText()));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao consultar exercícios: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_consultarBTActionPerformed
 
     private void alterarTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarTreinoBTActionPerformed
             
-        gerIG.getGerDominio().alterar(aluno);
+        int confirma = JOptionPane.showConfirmDialog(this, 
+                "Deseja salvar todas as alterações feitas no treino deste aluno?", 
+                "Confirmar Alterações", 
+                JOptionPane.YES_NO_OPTION);
+        
+        if (confirma != JOptionPane.YES_OPTION) {
+            return;
+        }
+        
+        try {
+            gerIG.getGerDominio().alterar(this.aluno);
+            JOptionPane.showMessageDialog(this, "Treino do aluno salvo com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao salvar as alterações: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_alterarTreinoBTActionPerformed
 
+    private void removerSistemaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerSistemaBTActionPerformed
+        int exIndex = exercicioLT.getSelectedIndex();
+        if (exIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um exercício da lista para remover do sistema.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Exercicio ex = (Exercicio) modelExercicio.getElementAt(exIndex);
+        
+        int confirma = JOptionPane.showConfirmDialog(this,
+                "Atenção! Esta ação removerá o exercício '" + ex.getNome() + "' permanentemente do sistema.\n"
+                + "Isso pode afetar o treino de outros alunos.\n\nDeseja continuar?",
+                "Remoção Permanente",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+        
+        if (confirma != JOptionPane.YES_OPTION) {
+            return;
+        }
+        
+        // Confirmação extra para segurança
+        int confirmaFinal = JOptionPane.showConfirmDialog(this, "Confirmação final: remover permanentemente o exercício?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        if(confirmaFinal != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        try {
+            gerIG.getGerDominio().excluir(ex);
+            JOptionPane.showMessageDialog(this, "Exercício removido do sistema com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            carregarLista(gerIG.getGerDominio().listar(Exercicio.class));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao remover exercício do sistema: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_removerSistemaBTActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */

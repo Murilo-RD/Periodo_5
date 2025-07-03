@@ -51,6 +51,13 @@ public class Exercicio implements Serializable {
     public String toString() {
         return nome+" - "+qtdSeries+" x "+qtdRepeticoes;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    
+    
     
     
     

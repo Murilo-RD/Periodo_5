@@ -10,6 +10,7 @@ import controller.TableModelPersonal;
 import domain.Aluno;
 import domain.Personal;
 import domain.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -301,15 +302,24 @@ public class ConsultarJD extends javax.swing.JDialog {
 
     private void consultarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTActionPerformed
 
-        
-        if(alunoRB.isSelected()){
-            modelAluno.setList(gerIG.getGerDominio().pesquisarAlunoPorNome(nomeTF.getText())); 
-        }else{
-            modelPersonal.setList(gerIG.getGerDominio().pesquisarPersonalPorNome(nomeTF.getText())); 
-        }
-        if(nomeTF.getText().isEmpty()){
-            modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
-            modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+       try {
+            String nome = nomeTF.getText();
+            if (alunoRB.isSelected()) {
+                modelAluno.setList(gerIG.getGerDominio().pesquisarAlunoPorNome(nome));
+            } else {
+                modelPersonal.setList(gerIG.getGerDominio().pesquisarPersonalPorNome(nome));
+            }
+
+            // Se a busca for vazia, recarrega a lista completa
+            if (nome.isEmpty()) {
+                if (alunoRB.isSelected()) {
+                    modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
+                } else {
+                    modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao realizar a consulta: " + e.getMessage(), "Erro de Consulta", JOptionPane.ERROR_MESSAGE);
         }
         
         // TODO add your handling code here:
@@ -317,34 +327,87 @@ public class ConsultarJD extends javax.swing.JDialog {
 
     private void removerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerBTActionPerformed
         int linha = resultTB.getSelectedRow();
-        if(alunoRB.isSelected()){
-            gerIG.getGerDominio().excluir(modelAluno.getAluno(linha));
-            modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class));
-        }else{
-            gerIG.getGerDominio().excluir(modelPersonal.getPersonal(linha));
-            modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+        
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um item na tabela para remover.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+   
+        int resposta = JOptionPane.showConfirmDialog(this, 
+                "Tem certeza que deseja remover o usuário selecionado?\nEsta ação não pode ser desfeita.", 
+                "Confirmar Remoção", 
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.WARNING_MESSAGE);
+
+        if (resposta != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        try {
+            if (alunoRB.isSelected()) {
+                gerIG.getGerDominio().excluir(modelAluno.getAluno(linha));
+                modelAluno.setList(gerIG.getGerDominio().listar(Aluno.class)); 
+            } else {
+                gerIG.getGerDominio().excluir(modelPersonal.getPersonal(linha));
+                modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class)); 
+            }
+            JOptionPane.showMessageDialog(this, "Usuário removido com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            if(persRB.isSelected()){
+                JOptionPane.showMessageDialog(this, "Ocorreu um erro\n o personal não pode haver alunos vinculados\n para que a remoção seja possivel. ", "Erro", JOptionPane.ERROR_MESSAGE);
+            }else
+            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao remover o usuário.\nDetalhes: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_removerBTActionPerformed
 
     private void alterarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBTActionPerformed
-        Usuario usuario;
-        
-        if(alunoRB.isSelected()){
-            usuario = modelAluno.getAluno(resultTB.getSelectedRow());
-        }else{
-            usuario = modelPersonal.getPersonal(resultTB.getSelectedRow());
+        int linha = resultTB.getSelectedRow();
+
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um item na tabela para alterar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
         }
-        gerIG.abrirJanelaAlterar(usuario);
+
+        try {
+            Usuario usuario;
+            if (alunoRB.isSelected()) {
+                usuario = modelAluno.getAluno(linha);
+            } else {
+                usuario = modelPersonal.getPersonal(linha);
+            }
+            gerIG.abrirJanelaAlterar(usuario);
+            
+            consultarBTActionPerformed(null);
+            
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(this, "Ocorreu um erro ao tentar alterar o usuário.\nDetalhes: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_alterarBTActionPerformed
 
     private void altAddTreinoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altAddTreinoBTActionPerformed
-        gerIG.abrirJanelaTreino(modelAluno.getAluno(resultTB.getSelectedRow()));
+        int linha = resultTB.getSelectedRow();
+
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um aluno para gerenciar o treino.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        try {
+             gerIG.abrirJanelaTreino(modelAluno.getAluno(linha));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao abrir a janela de treinos.\nDetalhes: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }                                              
     }//GEN-LAST:event_altAddTreinoBTActionPerformed
 
     private void persRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persRBActionPerformed
-      resultTB.setModel(modelPersonal);
-      modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+     resultTB.setModel(modelPersonal);
+      try {
+            modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+      } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Falha ao carregar lista de personais: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+      }
       altAddTreinoBT.setVisible(false);
+                                   
     }//GEN-LAST:event_persRBActionPerformed
 
     /**

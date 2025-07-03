@@ -11,6 +11,7 @@ import domain.Personal;
 import domain.Plano;
 import domain.Usuario;
 import java.util.Collections;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,14 +36,24 @@ public class AlterarJD extends javax.swing.JDialog {
     }
     
      public Plano calcularPlano(){
-        String plano = (String) planoCB.getSelectedItem();
-        int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 2;
-        double taxaPersonal = modelPersonal.getPersonal(personalJT.getSelectedRow()).getValorCobrado();
-        System.out.println("oooooooooooooooooooo");
-        String turnoTreino = (String) horarioCB.getSelectedItem();
-        Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);
-        valorLB.setText("R$"+String.format("%.2f",plan.getValor()));
-        return plan;
+        if (personalJT.getSelectedRow() == -1) {
+             // Evita erro se nenhum personal estiver selecionado.
+             // Na alteração, um personal já vem pré-selecionado, então isso é mais uma segurança.
+             JOptionPane.showMessageDialog(this, "Selecione um personal para calcular o plano.", "Aviso", JOptionPane.WARNING_MESSAGE);
+             return null;
+         }
+        try{
+            String plano = (String) planoCB.getSelectedItem();
+            int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 2;
+            double taxaPersonal = modelPersonal.getPersonal(personalJT.getSelectedRow()).getValorCobrado();
+            String turnoTreino = (String) horarioCB.getSelectedItem();
+            Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);
+            valorLB.setText("R$"+String.format("%.2f",plan.getValor()));
+            return plan;
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Erro ao calcular plano: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
     }
     
      public void setUsuario(Usuario usuario){
@@ -51,43 +62,73 @@ public class AlterarJD extends javax.swing.JDialog {
         personalJP.setVisible(false);
         this.usuario = usuario;
         nomeTL.setText(usuario.getNome());
-        if(this.usuario.getClass() == Personal.class){
+        
+        if(this.usuario instanceof Personal){
             personalJP.setVisible(true);
             Personal pers = (Personal) usuario;
             cargoTL.setText("Personal");
-            if(pers.getTipoCurso().equals(cursoCB.getItemAt(0))){
-                cursoCB.setSelectedIndex(0);
-            }else{
-                cursoCB.setSelectedIndex(1);
-            }
-            
+            cursoCB.setSelectedItem(pers.getTipoCurso());
             universidadeTF.setText(pers.getUniversidade());
             valorPorAlunSP.setValue(pers.getValorCobrado());
-        }else{
+        }else if (this.usuario instanceof Aluno) {
             alunJP.setVisible(true);
             Aluno alun = (Aluno) usuario;
             cargoTL.setText("Aluno");
+            
+            // Popula dados do aluno
             pesoSP.setValue(alun.getPeso());
             alturaSP.setValue(alun.getAltura());
             
-            int i;
-            for(i=0;i < 5;i++){
-                if(planoCB.getItemAt(i).equals(alun.getPlano().getPlano())){
-                    planoCB.setSelectedIndex(i);
+            // Popula dados do plano
+            planoCB.setSelectedItem(alun.getPlano().getPlano());
+            horarioCB.setSelectedItem(alun.getPlano().getTurnoTreino());
+            frequenciaLT.setSelectedIndex(alun.getPlano().getFrequenciaSemanal() - 2);
+            
+            // Localiza e seleciona o personal do aluno na tabela
+            Personal personalDoAluno = alun.getPersonal();
+            personalTF.setText(personalDoAluno.getNome());
+
+            for (int i = 0; i < modelPersonal.getRowCount(); i++) {
+                if (modelPersonal.getPersonal(i).getIdUsuario() == personalDoAluno.getIdUsuario()) {
+                    personalJT.setRowSelectionInterval(i, i);
+                    break;
                 }
             }
-            for(i=0;i < 3;i++){
-                if(horarioCB.getItemAt(i).equals(alun.getPlano().getPlano())){
-                    horarioCB.setSelectedIndex(i);
-                }
-            }
-            personalTF.setText(alun.getPersonal().getNome());
-            frequenciaLT.setSelectedIndex(alun.getPlano().getFrequenciaSemanal()-2);
-            personalJT.setRowSelectionInterval(0, 1);
+            // Calcula o valor inicial
             calcularPlano();
-                
+            
         }
-        
+               
+    }
+      private boolean validarCampos() {
+        if (this.usuario instanceof Aluno) {
+            if ((double) pesoSP.getValue() <= 0) {
+                JOptionPane.showMessageDialog(this, "O campo 'Peso' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                pesoSP.requestFocus();
+                return false;
+            }
+            if ((int) alturaSP.getValue() <= 0) {
+                JOptionPane.showMessageDialog(this, "O campo 'Altura' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                alturaSP.requestFocus();
+                return false;
+            }
+            if (personalJT.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(this, "É obrigatório selecionar um 'Personal'.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        } else if (this.usuario instanceof Personal) {
+            if (universidadeTF.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "O campo 'Nome da Universidade' é obrigatório.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                universidadeTF.requestFocus();
+                return false;
+            }
+            if ((double) valorPorAlunSP.getValue() <= 0) {
+                JOptionPane.showMessageDialog(this, "O 'Valor cobrado' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                valorPorAlunSP.requestFocus();
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -573,24 +614,59 @@ public class AlterarJD extends javax.swing.JDialog {
     }//GEN-LAST:event_calcularBTActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(this.usuario.getClass() == Personal.class){
-           Personal pers = (Personal) usuario;
-           pers.setTipoCurso(cursoCB.getSelectedItem().toString());
-           pers.setUniversidade(universidadeTF.getText());
-           pers.setValorCobrado((double) valorPorAlunSP.getValue());
-           gerIG.getGerDominio().alterar(pers);
-       }else{
-           Aluno alun = (Aluno) usuario;
-           alun.setPeso((double) pesoSP.getValue());
-           alun.setAltura((int) alturaSP.getValue());
-           alun.setPersonal(modelPersonal.getPersonal(personalJT.getSelectedRow()));
-           Plano plan = calcularPlano();
-           plan.setIdPlano(alun.getPlano().getIdPlano());
-           alun.setPlano(plan);
-           gerIG.getGerDominio().alterar(alun.getPlano());
-           gerIG.getGerDominio().alterar(alun);
-           
-       }        // TODO add your handling code here:
+        if (!validarCampos()) {
+            return; // Para a execução se a validação falhar
+        }
+
+        // 2. Pedir confirmação ao usuário
+        int confirma = JOptionPane.showConfirmDialog(this,
+            "Deseja realmente salvar as alterações?",
+            "Confirmação de Alteração",
+            JOptionPane.YES_NO_OPTION);
+
+        if (confirma != JOptionPane.YES_OPTION) {
+            return; 
+        }
+
+        
+        try {
+            if (this.usuario instanceof Personal) {
+                Personal pers = (Personal) usuario;
+                pers.setTipoCurso(cursoCB.getSelectedItem().toString());
+                pers.setUniversidade(universidadeTF.getText());
+                pers.setValorCobrado((double) valorPorAlunSP.getValue());
+                gerIG.getGerDominio().alterar(pers);
+            } else {
+                Aluno alun = (Aluno) usuario;
+                alun.setPeso((double) pesoSP.getValue());
+                alun.setAltura((int) alturaSP.getValue());
+                alun.setPersonal(modelPersonal.getPersonal(personalJT.getSelectedRow()));
+                
+                Plano plan = calcularPlano();
+                if (plan == null) {
+                    
+                    JOptionPane.showMessageDialog(this, "Não foi possível calcular o plano para a alteração.", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+                plan.setIdPlano(alun.getPlano().getIdPlano());
+                alun.setPlano(plan);
+                
+                gerIG.getGerDominio().alterar(alun.getPlano());
+                gerIG.getGerDominio().alterar(alun);
+            }
+
+            
+            JOptionPane.showMessageDialog(this, "Alterações salvas com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(this,
+                "Ocorreu um erro ao salvar as alterações.\nDetalhes: " + e.getMessage(),
+                "Erro Crítico",
+                JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

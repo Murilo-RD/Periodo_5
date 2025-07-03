@@ -6,7 +6,10 @@ import domain.Aluno;
 import domain.Personal;
 import domain.Plano;
 import domain.Usuario;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -40,20 +43,33 @@ public class CadastroJD extends javax.swing.JDialog {
 
     
     public Plano calcularPlano(){
-        String plano = (String) planosCB.getSelectedItem();
-        int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 2;
-        double taxaPersonal = modelPersonal.getPersonal(personalTB.getSelectedRow()).getValorCobrado();
-        String turnoTreino = (String) horarioCB.getSelectedItem();
-        Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);
-        valorLB.setText("R$"+String.format("%.2f",plan.getValor()));
-        return plan;
+           if (personalTB.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecione um personal na tabela abaixo antes de calcular o plano.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return null;
+        }
+        
+        try {
+            String plano = (String) planosCB.getSelectedItem();
+            int frequenciaSemanal = frequenciaLT.getSelectedIndex() + 2;
+            double taxaPersonal = modelPersonal.getPersonal(personalTB.getSelectedRow()).getValorCobrado();
+            String turnoTreino = (String) horarioCB.getSelectedItem();
+            Plano plan = new Plano(plano,frequenciaSemanal,taxaPersonal,turnoTreino);
+            valorLB.setText("R$"+String.format("%.2f",plan.getValor()));
+            return plan;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao calcular o plano. Verifique os dados.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
     }
     
     
-    public Usuario obterDados(){
+    public Usuario obterDados() throws ParseException, Exception{
         String nome = nomeTF.getText();
         String cpf = cpfFF.getText();
-        Date datNascimento = new Date(datFF.getText());
+        
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        Date datNascimento = formatador.parse(datFF.getText());
+        
         String sexo = (String) sexoCB.getSelectedItem();
         
         if(alunRB.isSelected()){
@@ -61,6 +77,9 @@ public class CadastroJD extends javax.swing.JDialog {
             double peso = (double) pesoSP.getValue();
             Personal personal = modelPersonal.getPersonal(personalTB.getSelectedRow());
             Plano plano = calcularPlano();
+            if (plano == null) {
+                throw new Exception("Cálculo do plano falhou.");
+            }
             gerIG.getGerDominio().inserir(plano);
             Aluno aluno = new Aluno(altura,peso,personal,plano,nome,cpf,datNascimento,sexo);
             return aluno;
@@ -71,8 +90,79 @@ public class CadastroJD extends javax.swing.JDialog {
             Personal pers = new Personal(tipoCurso, universidade, valorCobrado, nome, cpf, datNascimento, sexo);
             return pers;
         }
+    }
+    
+    private boolean validarCampos() {
+        if (nomeTF.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "O campo 'Nome' é obrigatório.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+            nomeTF.requestFocus();
+            return false;
+        }
+        if (cpfFF.getText().trim().replace(".", "").replace("-", "").replace(" ", "").isEmpty()) {
+            JOptionPane.showMessageDialog(this, "O campo 'CPF' é obrigatório.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+            cpfFF.requestFocus();
+            return false;
+        }
+        if (datFF.getText().trim().replace("/", "").replace(" ", "").isEmpty()) {
+            JOptionPane.showMessageDialog(this, "O campo 'Data de Nascimento' é obrigatório.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+            datFF.requestFocus();
+            return false;
+        }
+    
+        if (alunRB.isSelected()) {
+            if ((int) alturaSP.getValue() <= 0) {
+                JOptionPane.showMessageDialog(this, "O campo 'Altura' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                alturaSP.requestFocus();
+                return false;
+            }
+            if ((double) pesoSP.getValue() <= 0) {
+                JOptionPane.showMessageDialog(this, "O campo 'Peso' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                pesoSP.requestFocus();
+                return false;
+            }
+            if (personalTB.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(this, "É obrigatório selecionar um 'Personal' na tabela.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+            if (valorLB.getText().equals("R$ --")) {
+                JOptionPane.showMessageDialog(this, "É obrigatório calcular o valor do plano.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                calcularBT.requestFocus();
+                return false;
+            }
+        } 
+        else if (persRB.isSelected()) {
+            if (universidadeTF.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "O campo 'Nome da Universidade' é obrigatório.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                universidadeTF.requestFocus();
+                return false;
+            }
+            if ((double) valorPorAlunSP.getValue() <= 0) {
+                JOptionPane.showMessageDialog(this, "O campo 'Valor cobrado' deve ser maior que zero.", "Erro de Validação", JOptionPane.ERROR_MESSAGE);
+                valorPorAlunSP.requestFocus();
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private void limparCampos() {
+        nomeTF.setText("");
+        cpfFF.setText("");
+        datFF.setText("");
+        sexoCB.setSelectedIndex(0);
+
+        alturaSP.setValue(0);
+        pesoSP.setValue(0.0);
+        personalTF.setText("");
+        planosCB.setSelectedIndex(0);
+        frequenciaLT.setSelectedIndex(1);
+        horarioCB.setSelectedIndex(0);
+        valorLB.setText("R$ --");
+        personalTB.clearSelection();
         
-        
+        cursoCB.setSelectedIndex(0);
+        universidadeTF.setText("");
+        valorPorAlunSP.setValue(0.0);
     }
     
     /**
@@ -720,10 +810,39 @@ public class CadastroJD extends javax.swing.JDialog {
 
     private void cadastrarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBTActionPerformed
 
-        gerIG.getGerDominio().inserir(obterDados());    
-        if(persRB.isSelected())
-            modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
-        // TODO add your handling code here:
+        if (!validarCampos()) {
+            return; 
+        }
+
+        int resposta = JOptionPane.showConfirmDialog(this, 
+                "Deseja realmente cadastrar este usuário?", 
+                "Confirmação de Cadastro", 
+                JOptionPane.YES_NO_OPTION);
+
+        if (resposta != JOptionPane.YES_OPTION) {
+            return; 
+        }
+        
+        try {
+            Usuario novoUsuario = obterDados();
+            if (novoUsuario != null) {
+                gerIG.getGerDominio().inserir(novoUsuario);
+
+                JOptionPane.showMessageDialog(this, "Usuário cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+                if (persRB.isSelected()) {
+                    modelPersonal.setList(gerIG.getGerDominio().listar(Personal.class));
+                }
+                
+                limparCampos();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, 
+                    "Ocorreu um erro ao tentar cadastrar.\nDetalhes: " + e.getMessage(), 
+                    "Erro Crítico", 
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_cadastrarBTActionPerformed
 
     private void personalTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personalTFActionPerformed
@@ -735,8 +854,10 @@ public class CadastroJD extends javax.swing.JDialog {
     }//GEN-LAST:event_calcularBTActionPerformed
 
     private void personalTBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personalTBMouseClicked
-        personalTF.setText(modelPersonal.getPersonal(personalTB.getSelectedRow()).toString());
-        calcularPlano(); // TODO add your handling code here:
+       if (personalTB.getSelectedRow() != -1) {
+            personalTF.setText(modelPersonal.getPersonal(personalTB.getSelectedRow()).toString());
+            calcularPlano(); 
+        }
     }//GEN-LAST:event_personalTBMouseClicked
 
 
