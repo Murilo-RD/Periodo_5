@@ -3,6 +3,10 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="CAMINHO_MANUAL_PREVIEW" class="java.lang.String">
+		<defaultValueExpression><![CDATA["E:\\Area de trabalho\\Projetos\\Periodo_5\\POO2\\Trabalho\\SistemaAcademia\\src\\main\\resources\\logo Academia Axi (1).jpeg"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -41,10 +45,6 @@
 	</background>
 	<title>
 		<band height="123" splitType="Stretch">
-			<image>
-				<reportElement x="0" y="0" width="108" height="123" uuid="7cf86d95-db48-479b-946b-8976625a883d"/>
-				<imageExpression><![CDATA["E:\\Area de trabalho\\Projetos\\Periodo_5\\POO2\\Trabalho\\SistemaAcademia\\src\\main\\resources\\logo Academia Axi (1).jpeg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="133" y="32" width="308" height="58" forecolor="#006666" uuid="4ba7c515-56a9-41e5-bee3-7d5ea0395d52"/>
 				<textElement textAlignment="Center">
@@ -52,6 +52,10 @@
 				</textElement>
 				<text><![CDATA[AXI ACADEMIA]]></text>
 			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="101" height="123" uuid="457e82f3-a583-4559-8aaa-ee16d32b20d0"/>
+				<imageExpression><![CDATA[($P{CAMINHO_MANUAL_PREVIEW} ?: ($P{SUBREPORT_DIR}) + "..\\logo Academia Axi (1).jpeg")]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
